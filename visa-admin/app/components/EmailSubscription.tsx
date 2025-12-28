@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { trackEvent } from './Analytics'
 
 export function EmailSubscription() {
   const [email, setEmail] = useState('')
@@ -18,6 +19,19 @@ export function EmailSubscription() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email })
       })
+
+      // Send Telegram notification
+      await fetch('/api/telegram', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          type: 'subscription',
+          data: { email }
+        })
+      }).catch(console.error)
+
+      // Track event
+      trackEvent('subscribe', 'email', email)
 
       if (res.ok) {
         setStatus('success')

@@ -1,4 +1,5 @@
 import { prisma } from '@/lib/prisma'
+import { cache, CACHE_KEYS, CACHE_TTL } from '@/lib/cache'
 import Link from 'next/link'
 import { VisaCalculator } from './components/VisaCalculator'
 import { DocumentChecklist } from './components/DocumentChecklist'
@@ -10,19 +11,32 @@ import { EmailSubscription } from './components/EmailSubscription'
 import { Testimonials } from './components/Testimonials'
 import { HelpCounter } from './components/HelpCounter'
 import { ThemeToggle } from './components/ThemeToggle'
+import { VisaTracker } from './components/VisaTracker'
+import { InsuranceWidget } from './components/InsuranceWidget'
+import { BorderMap } from './components/BorderMap'
+import { PaymentWidget } from './components/PaymentWidget'
+import { LanguageSwitcher } from './components/LanguageSwitcher'
 
 async function getVisaTypes() {
-  return prisma.visaType.findMany({
-    where: { isActive: true },
-    orderBy: { order: 'asc' }
-  })
+  return cache.getOrSet(
+    CACHE_KEYS.VISA_TYPES,
+    () => prisma.visaType.findMany({
+      where: { isActive: true },
+      orderBy: { order: 'asc' }
+    }),
+    CACHE_TTL.MEDIUM
+  )
 }
 
 async function getFAQs() {
-  return prisma.fAQ.findMany({
-    where: { isActive: true },
-    orderBy: { order: 'asc' }
-  })
+  return cache.getOrSet(
+    CACHE_KEYS.FAQS,
+    () => prisma.fAQ.findMany({
+      where: { isActive: true },
+      orderBy: { order: 'asc' }
+    }),
+    CACHE_TTL.MEDIUM
+  )
 }
 
 export default async function HomePage() {
@@ -56,9 +70,12 @@ export default async function HomePage() {
             <a href="#faq" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition">FAQ</a>
             <a href="#contacts" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition">Контакты</a>
           </nav>
-          <a href="#contacts" className="bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white px-5 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition shadow-lg">
-            Оформить визу
-          </a>
+          <div className="flex items-center gap-4">
+            <LanguageSwitcher />
+            <a href="#contacts" className="bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white px-5 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition shadow-lg">
+              Оформить визу
+            </a>
+          </div>
         </div>
       </header>
 
@@ -215,6 +232,20 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* Visa Tracker & Payment */}
+      <section className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-green-600 dark:text-green-400 font-bold mb-2">Сервисы</p>
+            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Отслеживание и оплата</h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <VisaTracker />
+            <PaymentWidget />
+          </div>
+        </div>
+      </section>
+
       {/* Visa Comparison */}
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
@@ -300,6 +331,28 @@ export default async function HomePage() {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <UsefulLinks />
+        </div>
+      </section>
+
+      {/* Border Map */}
+      <section id="border-map" className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-green-600 dark:text-green-400 font-bold mb-2">Пункты въезда</p>
+            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Карта погранпереходов</h2>
+          </div>
+          <BorderMap />
+        </div>
+      </section>
+
+      {/* Insurance */}
+      <section id="insurance" className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-green-600 dark:text-green-400 font-bold mb-2">Подготовка к поездке</p>
+            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Страхование путешественников</h2>
+          </div>
+          <InsuranceWidget />
         </div>
       </section>
 

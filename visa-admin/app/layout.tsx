@@ -21,6 +21,16 @@ export const metadata: Metadata = {
   creator: "VietVisa",
   publisher: "VietVisa",
   robots: "index, follow",
+  manifest: "/manifest.json",
+  themeColor: "#22C55E",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "VietVisa"
+  },
+  formatDetection: {
+    telephone: true
+  },
   openGraph: {
     type: "website",
     locale: "ru_RU",

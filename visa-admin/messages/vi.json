@@ -1,0 +1,186 @@
+{
+  "nav": {
+    "calculator": "Máy tính",
+    "visas": "Thị thực",
+    "faq": "FAQ",
+    "contacts": "Liên hệ",
+    "applyVisa": "Xin thị thực"
+  },
+  "hero": {
+    "badge": "Cập nhật 2025",
+    "title": "Thị thực",
+    "titleHighlight": "Việt Nam",
+    "description": "Thông tin đầy đủ về yêu cầu thị thực. Miễn thị thực đến 45 ngày, thị thực điện tử, thị thực tại sân bay.",
+    "calculatorBtn": "Máy tính thị thực",
+    "learnMore": "Tìm hiểu về thị thực"
+  },
+  "stats": {
+    "daysVisaFree": "ngày miễn thị thực",
+    "evisaCost": "phí e-visa",
+    "processingDays": "ngày xử lý",
+    "maxDays": "ngày tối đa"
+  },
+  "calculator": {
+    "title": "Máy tính thị thực",
+    "question": "Bạn dự định ở bao nhiêu ngày?",
+    "days": "ngày",
+    "calculate": "Tính toán",
+    "visaFree": "Miễn thị thực",
+    "visaFreeDesc": "Bạn không cần thị thực! Bạn có thể ở Việt Nam đến 45 ngày mà không cần thị thực.",
+    "evisa": "E-Visa",
+    "evisaDesc": "Chúng tôi khuyên bạn nên xin thị thực điện tử trên trang web chính thức immigration.gov.vn",
+    "longTerm": "Thị thực dài hạn",
+    "longTermDesc": "Đối với thời gian lưu trú trên 90 ngày, bạn cần xin thị thực qua đại sứ quán.",
+    "free": "Miễn phí",
+    "from": "từ"
+  },
+  "checklist": {
+    "title": "Danh sách tài liệu",
+    "subtitle": "Đánh dấu các tài liệu bạn đã có",
+    "required": "Bắt buộc",
+    "recommended": "Khuyến nghị",
+    "requiredDocs": "Tài liệu bắt buộc",
+    "allReady": "Tất cả tài liệu bắt buộc đã sẵn sàng!",
+    "passport": "Hộ chiếu",
+    "passportDesc": "Có hiệu lực ít nhất 6 tháng kể từ ngày nhập cảnh",
+    "photo": "Ảnh 4x6 cm",
+    "photoDesc": "Nền trắng, không đeo kính, chụp gần đây",
+    "ticket": "Vé khứ hồi",
+    "ticketDesc": "Hoặc vé đến nước thứ ba",
+    "hotel": "Đặt phòng khách sạn",
+    "hotelDesc": "Xác nhận chỗ ở trong suốt thời gian lưu trú",
+    "insurance": "Bảo hiểm du lịch",
+    "insuranceDesc": "Khuyến nghị với mức bảo hiểm từ $30,000",
+    "finances": "Chứng minh tài chính",
+    "financesDesc": "Sao kê ngân hàng hoặc tiền mặt"
+  },
+  "comparison": {
+    "title": "So sánh các loại thị thực",
+    "criteria": "Tiêu chí",
+    "duration": "Thời hạn",
+    "price": "Giá",
+    "processing": "Xử lý",
+    "entry": "Nhập cảnh",
+    "extension": "Gia hạn",
+    "documents": "Tài liệu",
+    "recommended": "Khuyến nghị",
+    "suitableFor": "Phù hợp cho:",
+    "tourism": "Du lịch đến 45 ngày = Miễn thị thực",
+    "longVacation": "Kỳ nghỉ dài = E-Visa",
+    "business": "Kinh doanh = Lãnh sự"
+  },
+  "visaTypes": {
+    "title": "Các loại thị thực",
+    "subtitle": "Chọn lựa chọn phù hợp",
+    "duration": "Thời hạn:",
+    "cost": "Chi phí:",
+    "documents": "Tài liệu:",
+    "comingSoon": "Thông tin thị thực sắp có"
+  },
+  "evisa": {
+    "title": "Cách xin E-Visa",
+    "instruction": "Hướng dẫn",
+    "step1": "Điền đơn",
+    "step1Desc": "Tại immigration.gov.vn",
+    "step2": "Tải ảnh lên",
+    "step2Desc": "Kích thước 4x6 cm, nền trắng",
+    "step3": "Thanh toán phí",
+    "step3Desc": "$25 bằng thẻ trực tuyến",
+    "step4": "Nhận thị thực",
+    "step4Desc": "Qua email trong 3-5 ngày",
+    "apply": "Xin E-Visa"
+  },
+  "links": {
+    "title": "Liên kết hữu ích",
+    "official": "Tất cả liên kết dẫn đến các nguồn chính phủ chính thức",
+    "evisaOfficial": "Trang web E-Visa chính thức",
+    "evisaDesc": "Xin thị thực điện tử",
+    "embassy": "Đại sứ quán Việt Nam",
+    "embassyDesc": "Dịch vụ lãnh sự",
+    "immigration": "Cục Xuất nhập cảnh",
+    "immigrationDesc": "Trang web dịch vụ di trú chính thức",
+    "checkStatus": "Kiểm tra trạng thái E-Visa",
+    "checkStatusDesc": "Kiểm tra thị thực",
+    "midRu": "Bộ Ngoại giao",
+    "midRuDesc": "Khuyến nghị du lịch",
+    "airlines": "Vietnam Airlines",
+    "airlinesDesc": "Hãng hàng không quốc gia"
+  },
+  "testimonials": {
+    "title": "Đánh giá của khách hàng",
+    "avgRating": "Đánh giá trung bình",
+    "reviews": "Đánh giá",
+    "satisfied": "Hài lòng"
+  },
+  "counter": {
+    "title": "Được hàng nghìn du khách tin tưởng",
+    "helped": "Người được giúp đỡ",
+    "visas": "Thị thực cấp",
+    "experience": "Năm kinh nghiệm",
+    "countries": "Quốc gia phục vụ",
+    "asOf": "Dữ liệu tháng 12 năm 2024"
+  },
+  "faq": {
+    "title": "Câu hỏi thường gặp",
+    "comingSoon": "FAQ sắp có"
+  },
+  "contact": {
+    "title": "Cần giúp đỡ?",
+    "subtitle": "Liên hệ với chúng tôi",
+    "formTitle": "Gửi yêu cầu",
+    "formSubtitle": "Chúng tôi sẽ giúp bạn xin thị thực",
+    "name": "Tên",
+    "email": "Email",
+    "phone": "Điện thoại",
+    "arrivalDate": "Ngày đến",
+    "visaType": "Loại thị thực",
+    "message": "Tin nhắn",
+    "messagePlaceholder": "Mô tả tình huống của bạn hoặc đặt câu hỏi...",
+    "submit": "Gửi yêu cầu",
+    "submitting": "Đang gửi...",
+    "success": "Yêu cầu đã gửi!",
+    "successMsg": "Chúng tôi sẽ liên hệ trong 24 giờ",
+    "privacy": "Bằng cách nhấp vào nút, bạn đồng ý với việc xử lý dữ liệu cá nhân",
+    "quickContact": "Liên hệ nhanh",
+    "telegram": "Telegram",
+    "whatsapp": "WhatsApp"
+  },
+  "subscription": {
+    "title": "Đăng ký nhận thông tin",
+    "description": "Nhận thông tin cập nhật về thay đổi quy định thị thực và mẹo hữu ích",
+    "placeholder": "Email của bạn",
+    "subscribe": "Đăng ký",
+    "subscribing": "Đang đăng ký...",
+    "success": "Đăng ký thành công!",
+    "error": "Lỗi. Thử lại sau.",
+    "note": "Không quá 2 email mỗi tháng. Hủy đăng ký bất cứ lúc nào."
+  },
+  "footer": {
+    "description": "Thông tin đầy đủ về thị thực Việt Nam",
+    "navigation": "Điều hướng",
+    "links": "Liên kết",
+    "contacts": "Liên hệ",
+    "rights": "Bảo lưu mọi quyền.",
+    "admin": "Bảng quản trị"
+  },
+  "chatbot": {
+    "title": "Trợ lý thị thực",
+    "online": "Trực tuyến",
+    "responseTime": "Phản hồi ngay",
+    "greeting": "Xin chào! Tôi sẽ giúp bạn hiểu yêu cầu thị thực Việt Nam. Đặt câu hỏi hoặc chọn từ danh sách bên dưới.",
+    "placeholder": "Nhập câu hỏi của bạn...",
+    "q1": "Tôi có cần thị thực cho 30 ngày không?",
+    "q2": "Làm thế nào để xin E-Visa?",
+    "q3": "Cần những tài liệu gì?",
+    "q4": "Thị thực giá bao nhiêu?"
+  },
+  "theme": {
+    "toggle": "Chuyển đổi giao diện"
+  },
+  "common": {
+    "yes": "Có",
+    "no": "Không",
+    "free": "Miễn phí",
+    "from": "từ"
+  }
+}
