@@ -15,7 +15,10 @@ import { VisaTracker } from './components/VisaTracker'
 import { InsuranceWidget } from './components/InsuranceWidget'
 import { BorderMap } from './components/BorderMap'
 import { PaymentWidget } from './components/PaymentWidget'
-import { LanguageSwitcher } from './components/LanguageSwitcher'
+import { Header } from './components/Header'
+import { HeroSection } from './components/HeroSection'
+import { StatsSection } from './components/StatsSection'
+import { FooterSection } from './components/FooterSection'
 
 async function getVisaTypes() {
   return cache.getOrSet(
@@ -58,165 +61,13 @@ export default async function HomePage() {
       </div>
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border-b border-white/50 dark:border-gray-700/50">
-        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-          <a href="#" className="flex items-center gap-2 text-xl font-extrabold text-gray-900 dark:text-white">
-            <span className="text-2xl">🇻🇳</span>
-            VietVisa
-          </a>
-          <nav className="hidden md:flex gap-8">
-            <a href="#calculator" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition">Калькулятор</a>
-            <a href="#visas" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition">Визы</a>
-            <a href="#faq" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition">FAQ</a>
-            <a href="#contacts" className="text-gray-600 dark:text-gray-300 hover:text-green-600 dark:hover:text-green-400 font-semibold transition">Контакты</a>
-          </nav>
-          <div className="flex items-center gap-4">
-            <LanguageSwitcher />
-            <a href="#contacts" className="bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white px-5 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition shadow-lg">
-              Оформить визу
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header />
 
       {/* Hero */}
-      <section className="min-h-screen flex items-center pt-20 pb-10 px-4">
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center w-full">
-          {/* Content */}
-          <div>
-            <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold text-green-700 dark:text-green-400 mb-6 shadow-lg border border-white/50 dark:border-gray-700">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-              Актуально на 2025 год
-            </div>
-            <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white leading-tight mb-6">
-              Виза во{' '}
-              <span className="bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                Вьетнам
-              </span>
-            </h1>
-            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-              Полная информация о визовых требованиях для граждан России.
-              Безвизовый въезд до 45 дней, электронная виза, виза по прилёту.
-            </p>
-            <div className="flex flex-wrap gap-4">
-              <a href="#calculator" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-xl">
-                Калькулятор визы
-                <span>🧮</span>
-              </a>
-              <a href="#visas" className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-xl border border-gray-200 dark:border-gray-700">
-                Узнать о визах
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Map */}
-          <div className="relative flex justify-center items-center">
-            <svg className="w-full max-w-sm animate-float-slow drop-shadow-2xl" viewBox="0 0 300 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="mapGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stopColor="#22C55E"/>
-                  <stop offset="50%" stopColor="#FB7185"/>
-                  <stop offset="100%" stopColor="#F97316"/>
-                </linearGradient>
-                <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="10" stdDeviation="20" floodColor="#22C55E" floodOpacity="0.3"/>
-                </filter>
-              </defs>
-
-              {/* Vietnam Shape */}
-              <path d="
-                M 145 25
-                C 160 28, 175 35, 185 45
-                C 195 55, 200 70, 195 85
-                C 190 100, 175 110, 170 125
-                C 165 140, 170 155, 180 170
-                C 190 185, 200 195, 195 215
-                C 190 235, 175 250, 170 270
-                C 165 290, 170 310, 175 330
-                C 180 350, 175 370, 165 390
-                C 155 410, 140 425, 125 440
-                C 110 455, 90 465, 75 470
-                C 60 475, 45 470, 40 455
-                C 35 440, 45 420, 55 400
-                C 65 380, 75 360, 80 340
-                C 85 320, 80 300, 85 280
-                C 90 260, 100 245, 105 225
-                C 110 205, 105 185, 100 165
-                C 95 145, 90 125, 95 105
-                C 100 85, 115 70, 125 55
-                C 135 40, 140 30, 145 25
-                Z
-              " fill="url(#mapGradient)" filter="url(#shadow)"/>
-
-              {/* City Markers */}
-              <g>
-                {/* Hanoi */}
-                <circle cx="155" cy="75" r="8" fill="white" stroke="url(#mapGradient)" strokeWidth="3"/>
-                <circle cx="155" cy="75" r="4" fill="url(#mapGradient)"/>
-
-                {/* Da Nang */}
-                <circle cx="175" cy="200" r="7" fill="white" stroke="url(#mapGradient)" strokeWidth="3"/>
-                <circle cx="175" cy="200" r="3" fill="url(#mapGradient)"/>
-
-                {/* Nha Trang */}
-                <circle cx="160" cy="300" r="7" fill="white" stroke="url(#mapGradient)" strokeWidth="3"/>
-                <circle cx="160" cy="300" r="3" fill="url(#mapGradient)"/>
-
-                {/* Ho Chi Minh */}
-                <circle cx="100" cy="400" r="8" fill="white" stroke="url(#mapGradient)" strokeWidth="3"/>
-                <circle cx="100" cy="400" r="4" fill="url(#mapGradient)"/>
-
-                {/* Phu Quoc */}
-                <circle cx="55" cy="445" r="6" fill="white" stroke="url(#mapGradient)" strokeWidth="3"/>
-                <circle cx="55" cy="445" r="2.5" fill="url(#mapGradient)"/>
-              </g>
-
-              {/* City Labels */}
-              <g fill="currentColor" className="text-gray-900 dark:text-white" fontFamily="system-ui" fontWeight="700" fontSize="12">
-                <text x="175" y="80">Ханой</text>
-                <text x="195" y="205">Дананг</text>
-                <text x="180" y="305">Нячанг</text>
-                <text x="120" y="405">Хошимин</text>
-                <text x="70" y="455">Фукуок</text>
-              </g>
-            </svg>
-
-            {/* Map Badges */}
-            <div className="absolute top-10 -right-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-white/50 dark:border-gray-700 flex items-center gap-2 animate-float">
-              <span>🏖️</span>
-              <span className="font-bold text-sm dark:text-white">Пляжи</span>
-            </div>
-            <div className="absolute bottom-32 -left-4 bg-white/80 dark:bg-gray-800/80 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-white/50 dark:border-gray-700 flex items-center gap-2 animate-float-delay">
-              <span>🍜</span>
-              <span className="font-bold text-sm dark:text-white">Еда</span>
-            </div>
-            <div className="absolute bottom-10 right-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur px-4 py-2 rounded-full shadow-lg border border-white/50 dark:border-gray-700 flex items-center gap-2 animate-float-delay-2">
-              <span>🏛️</span>
-              <span className="font-bold text-sm dark:text-white">Храмы</span>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Stats */}
-      <section className="py-16 px-4">
-        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6">
-          {[
-            { value: '45', label: 'дней без визы' },
-            { value: '$25', label: 'стоимость e-visa' },
-            { value: '3-5', label: 'дней оформление' },
-            { value: '90', label: 'дней максимум' },
-          ].map((stat) => (
-            <div key={stat.label} className="bg-white/80 dark:bg-gray-800/80 backdrop-blur rounded-2xl p-6 text-center shadow-xl border border-white/50 dark:border-gray-700">
-              <p className="text-4xl font-black bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
-                {stat.value}
-              </p>
-              <p className="text-gray-600 dark:text-gray-400 font-medium mt-1">{stat.label}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+      <StatsSection />
 
       {/* Calculator & Checklist */}
       <section id="calculator" className="py-20 px-4">
@@ -445,50 +296,7 @@ export default async function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-950 py-12 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8 mb-8">
-            <div>
-              <div className="flex items-center gap-2 text-xl font-extrabold text-white mb-4">
-                <span className="text-2xl">🇻🇳</span>
-                VietVisa
-              </div>
-              <p className="text-gray-400 text-sm">
-                Полная информация о визах во Вьетнам для граждан России
-              </p>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Навигация</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="#calculator" className="hover:text-green-400 transition">Калькулятор</a></li>
-                <li><a href="#visas" className="hover:text-green-400 transition">Типы виз</a></li>
-                <li><a href="#faq" className="hover:text-green-400 transition">FAQ</a></li>
-                <li><a href="#contacts" className="hover:text-green-400 transition">Контакты</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Ссылки</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li><a href="https://evisa.xuatnhapcanh.gov.vn" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition">E-Visa официальный</a></li>
-                <li><a href="https://vietnamembassy.ru" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition">Посольство Вьетнама</a></li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-white mb-4">Контакты</h4>
-              <ul className="space-y-2 text-gray-400 text-sm">
-                <li>📱 Telegram: @vietvisa</li>
-                <li>✉️ info@vietvisa.ru</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
-            <p>© 2025 VietVisa. Все права защищены.</p>
-            <Link href="/admin" className="text-green-500 hover:text-green-400 font-medium">
-              Админ-панель
-            </Link>
-          </div>
-        </div>
-      </footer>
+      <FooterSection />
 
       {/* ChatBot */}
       <ChatBot />

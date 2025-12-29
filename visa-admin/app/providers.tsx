@@ -4,6 +4,7 @@ import { SessionProvider } from 'next-auth/react'
 import { ReactNode, useEffect } from 'react'
 import { Analytics } from './components/Analytics'
 import { ABTestProvider } from './components/ABTest'
+import { TranslationProvider } from './components/TranslationProvider'
 
 function ServiceWorkerRegistration() {
   useEffect(() => {
@@ -25,11 +26,13 @@ function ServiceWorkerRegistration() {
 export function Providers({ children }: { children: ReactNode }) {
   return (
     <SessionProvider>
-      <ABTestProvider>
-        {children}
-        <Analytics />
-        <ServiceWorkerRegistration />
-      </ABTestProvider>
+      <TranslationProvider>
+        <ABTestProvider>
+          {children}
+          <Analytics />
+          <ServiceWorkerRegistration />
+        </ABTestProvider>
+      </TranslationProvider>
     </SessionProvider>
   )
 }
