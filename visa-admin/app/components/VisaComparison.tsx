@@ -73,22 +73,24 @@ export function VisaComparison() {
               {visaTypes.map(visa => (
                 <th
                   key={visa.type}
-                  className={`p-2 md:p-3 text-center cursor-pointer transition-all ${
+                  className={`p-2 md:p-3 text-center cursor-pointer transition-all align-bottom ${
                     highlighted === visa.type
                       ? 'bg-gradient-to-b from-green-100 dark:from-green-900/30 to-transparent'
                       : ''
-                  } ${visa.recommended ? 'relative' : ''}`}
+                  }`}
                   onMouseEnter={() => setHighlighted(visa.type)}
                   onMouseLeave={() => setHighlighted(null)}
                 >
-                  <div className={`font-bold text-sm md:text-base ${visa.recommended ? 'text-green-600 dark:text-green-400' : 'text-gray-900 dark:text-white'}`}>
-                    {visa.type}
-                  </div>
-                  {visa.recommended && (
-                    <span className="absolute -top-1 md:-top-2 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded-full whitespace-nowrap">
+                  <div className="flex flex-col items-center gap-1">
+                    {visa.recommended && (
+                      <span className="bg-green-500 text-white text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded-full whitespace-nowrap">
                       {t('comparison.recommended')}
+                      </span>
+                    )}
+                    <span className={`font-bold text-sm md:text-base ${visa.recommended ? 'text-green-600 dark:text-green-400' : 'text-gray-900 dark:text-white'}`}>
+                    {visa.type}
                     </span>
-                  )}
+                  </div>
                 </th>
               ))}
             </tr>
