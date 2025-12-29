@@ -58,32 +58,32 @@ export function VisaComparison() {
   const [highlighted, setHighlighted] = useState<string | null>(null)
 
   return (
-    <div className="bg-white/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 overflow-hidden">
-      <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-4 md:p-8 shadow-xl border border-white/50 dark:border-gray-700 overflow-hidden">
+      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
         <span>📊</span> Сравнение типов виз
       </h3>
 
-      <div className="overflow-x-auto -mx-8 px-8">
+      <div className="overflow-x-auto -mx-4 md:-mx-8 px-4 md:px-8">
         <table className="w-full min-w-[600px]">
           <thead>
             <tr>
-              <th className="text-left p-3 text-gray-500 font-medium">Критерий</th>
+              <th className="text-left p-2 md:p-3 text-gray-500 dark:text-gray-400 font-medium text-sm md:text-base">Критерий</th>
               {visaTypes.map(visa => (
                 <th
                   key={visa.type}
-                  className={`p-3 text-center cursor-pointer transition-all ${
+                  className={`p-2 md:p-3 text-center cursor-pointer transition-all ${
                     highlighted === visa.type
-                      ? 'bg-gradient-to-b from-green-100 to-transparent'
+                      ? 'bg-gradient-to-b from-green-100 dark:from-green-900/30 to-transparent'
                       : ''
                   } ${visa.recommended ? 'relative' : ''}`}
                   onMouseEnter={() => setHighlighted(visa.type)}
                   onMouseLeave={() => setHighlighted(null)}
                 >
-                  <div className={`font-bold ${visa.recommended ? 'text-green-600' : 'text-gray-900'}`}>
+                  <div className={`font-bold text-sm md:text-base ${visa.recommended ? 'text-green-600 dark:text-green-400' : 'text-gray-900 dark:text-white'}`}>
                     {visa.type}
                   </div>
                   {visa.recommended && (
-                    <span className="absolute -top-2 left-1/2 -translate-x-1/2 bg-green-500 text-white text-xs px-2 py-0.5 rounded-full">
+                    <span className="absolute -top-1 md:-top-2 left-1/2 -translate-x-1/2 bg-green-500 text-white text-[10px] md:text-xs px-1.5 md:px-2 py-0.5 rounded-full whitespace-nowrap">
                       Рекомендуем
                     </span>
                   )}
@@ -93,21 +93,21 @@ export function VisaComparison() {
           </thead>
           <tbody>
             {criteria.map((c, idx) => (
-              <tr key={c.key} className={idx % 2 === 0 ? 'bg-gray-50/50' : ''}>
-                <td className="p-3 text-gray-600 font-medium">{c.label}</td>
+              <tr key={c.key} className={idx % 2 === 0 ? 'bg-gray-50/50 dark:bg-gray-700/30' : ''}>
+                <td className="p-2 md:p-3 text-gray-600 dark:text-gray-400 font-medium text-sm md:text-base">{c.label}</td>
                 {visaTypes.map(visa => (
                   <td
                     key={visa.type}
-                    className={`p-3 text-center transition-all ${
+                    className={`p-2 md:p-3 text-center transition-all text-sm md:text-base ${
                       highlighted === visa.type
-                        ? 'bg-green-50'
+                        ? 'bg-green-50 dark:bg-green-900/20'
                         : ''
                     }`}
                   >
                     <span className={`${
                       c.key === 'price' && visa.price === 'Бесплатно'
-                        ? 'text-green-600 font-bold'
-                        : 'text-gray-700'
+                        ? 'text-green-600 dark:text-green-400 font-bold'
+                        : 'text-gray-700 dark:text-gray-300'
                     }`}>
                       {visa[c.key as keyof typeof visa]}
                     </span>
@@ -120,10 +120,10 @@ export function VisaComparison() {
       </div>
 
       <div className="mt-6 flex flex-wrap gap-2 justify-center">
-        <span className="text-sm text-gray-500">Подходит для:</span>
-        <span className="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm">Туризм до 45 дней = Безвизовый</span>
-        <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm">Долгий отдых = E-Visa</span>
-        <span className="px-3 py-1 bg-orange-100 text-orange-700 rounded-full text-sm">Бизнес = Консульская</span>
+        <span className="text-sm text-gray-500 dark:text-gray-400">Подходит для:</span>
+        <span className="px-2 md:px-3 py-1 bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 rounded-full text-xs md:text-sm">Туризм до 45 дней = Безвизовый</span>
+        <span className="px-2 md:px-3 py-1 bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 rounded-full text-xs md:text-sm">Долгий отдых = E-Visa</span>
+        <span className="px-2 md:px-3 py-1 bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 rounded-full text-xs md:text-sm">Бизнес = Консульская</span>
       </div>
     </div>
   )
