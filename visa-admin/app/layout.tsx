@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
@@ -13,6 +13,10 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+export const viewport: Viewport = {
+  themeColor: "#22C55E",
+};
+
 export const metadata: Metadata = {
   title: "Виза во Вьетнам 2025 — Полное руководство для граждан России | VietVisa",
   description: "Актуальная информация о визах во Вьетнам для россиян. Безвизовый въезд до 45 дней, E-Visa за $25, виза по прилёту. Пошаговые инструкции, калькулятор визы, чек-лист документов.",
@@ -22,7 +26,6 @@ export const metadata: Metadata = {
   publisher: "VietVisa",
   robots: "index, follow",
   manifest: "/manifest.json",
-  themeColor: "#22C55E",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
