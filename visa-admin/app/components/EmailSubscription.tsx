@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import { trackEvent } from './Analytics'
+import { useTranslation } from './TranslationProvider'
 
 export function EmailSubscription() {
+  const { t } = useTranslation()
   const [email, setEmail] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
@@ -50,9 +52,9 @@ export function EmailSubscription() {
     <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-3xl p-8 shadow-xl text-white">
       <div className="max-w-2xl mx-auto text-center">
         <span className="text-4xl mb-4 block">📬</span>
-        <h3 className="text-2xl font-bold mb-2">Подпишитесь на обновления</h3>
+        <h3 className="text-2xl font-bold mb-2">{t('subscription.title')}</h3>
         <p className="text-green-100 mb-6">
-          Получайте актуальную информацию об изменениях визовых правил и полезные советы
+          {t('subscription.description')}
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
@@ -60,7 +62,7 @@ export function EmailSubscription() {
             type="email"
             value={email}
             onChange={e => setEmail(e.target.value)}
-            placeholder="Ваш email"
+            placeholder={t('subscription.placeholder')}
             required
             className="flex-1 px-5 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
           />
@@ -69,24 +71,24 @@ export function EmailSubscription() {
             disabled={status === 'loading'}
             className="px-6 py-3 bg-white text-green-600 font-bold rounded-xl hover:bg-green-50 transition disabled:opacity-50"
           >
-            {status === 'loading' ? 'Подписываем...' : 'Подписаться'}
+            {status === 'loading' ? t('subscription.subscribing') : t('subscription.subscribe')}
           </button>
         </form>
 
         {status === 'success' && (
           <p className="mt-4 text-green-100 flex items-center justify-center gap-2">
-            <span>✅</span> Вы успешно подписались!
+            <span>✅</span> {t('subscription.success')}
           </p>
         )}
 
         {status === 'error' && (
           <p className="mt-4 text-red-200 flex items-center justify-center gap-2">
-            <span>❌</span> Ошибка. Попробуйте позже.
+            <span>❌</span> {t('subscription.error')}
           </p>
         )}
 
         <p className="mt-4 text-xs text-green-200">
-          Не более 2 писем в месяц. Отписаться можно в любой момент.
+          {t('subscription.note')}
         </p>
       </div>
     </div>

@@ -1,93 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-
-const borderCrossings = [
-  {
-    id: 1,
-    name: 'Сан-бей Ной-бай (Ханой)',
-    nameEn: 'Noi Bai Airport',
-    type: 'airport',
-    city: 'Ханой',
-    coords: { x: 155, y: 75 },
-    evisa: true,
-    voa: true,
-    hours: '24/7',
-    notes: 'Главный международный аэропорт на севере'
-  },
-  {
-    id: 2,
-    name: 'Сан-бей Дананг',
-    nameEn: 'Da Nang Airport',
-    type: 'airport',
-    city: 'Дананг',
-    coords: { x: 175, y: 200 },
-    evisa: true,
-    voa: true,
-    hours: '24/7',
-    notes: 'Центральный Вьетнам, популярный курорт'
-  },
-  {
-    id: 3,
-    name: 'Сан-бей Камрань (Нячанг)',
-    nameEn: 'Cam Ranh Airport',
-    type: 'airport',
-    city: 'Нячанг',
-    coords: { x: 165, y: 310 },
-    evisa: true,
-    voa: true,
-    hours: '24/7',
-    notes: 'Популярный курорт, много рейсов из России'
-  },
-  {
-    id: 4,
-    name: 'Сан-бей Таншоннят (Хошимин)',
-    nameEn: 'Tan Son Nhat Airport',
-    type: 'airport',
-    city: 'Хошимин',
-    coords: { x: 100, y: 400 },
-    evisa: true,
-    voa: true,
-    hours: '24/7',
-    notes: 'Крупнейший аэропорт Вьетнама'
-  },
-  {
-    id: 5,
-    name: 'Сан-бей Фукуок',
-    nameEn: 'Phu Quoc Airport',
-    type: 'airport',
-    city: 'Фукуок',
-    coords: { x: 55, y: 445 },
-    evisa: true,
-    voa: true,
-    hours: '24/7',
-    notes: 'Безвизовый режим до 30 дней для острова'
-  },
-  {
-    id: 6,
-    name: 'КПП Мок-бай',
-    nameEn: 'Moc Bai Border',
-    type: 'land',
-    city: 'Тай Нинь',
-    coords: { x: 85, y: 385 },
-    evisa: true,
-    voa: false,
-    hours: '7:00-22:00',
-    notes: 'Граница с Камбоджей (от Хошимина)'
-  },
-  {
-    id: 7,
-    name: 'КПП Лаобао',
-    nameEn: 'Lao Bao Border',
-    type: 'land',
-    city: 'Куанг Чи',
-    coords: { x: 155, y: 175 },
-    evisa: true,
-    voa: false,
-    hours: '7:00-19:00',
-    notes: 'Граница с Лаосом'
-  }
-]
+import { useTranslation } from './TranslationProvider'
 
 const typeIcons = {
   airport: '✈️',
@@ -95,15 +9,103 @@ const typeIcons = {
   sea: '🚢'
 }
 
-const typeNames = {
-  airport: 'Аэропорт',
-  land: 'Наземный КПП',
-  sea: 'Морской порт'
-}
-
 export function BorderMap() {
+  const { t } = useTranslation()
   const [selected, setSelected] = useState<typeof borderCrossings[0] | null>(null)
   const [filter, setFilter] = useState<'all' | 'airport' | 'land'>('all')
+
+  const typeNames = {
+    airport: t('borderMap.airport'),
+    land: t('borderMap.landBorder'),
+    sea: t('borderMap.seaport')
+  }
+
+  const borderCrossings = [
+    {
+      id: 1,
+      name: t('borderMap.noiBai'),
+      nameEn: 'Noi Bai Airport',
+      type: 'airport',
+      city: 'Hanoi',
+      coords: { x: 155, y: 75 },
+      evisa: true,
+      voa: true,
+      hours: '24/7',
+      notes: t('borderMap.noteNoiBai')
+    },
+    {
+      id: 2,
+      name: t('borderMap.daNang'),
+      nameEn: 'Da Nang Airport',
+      type: 'airport',
+      city: 'Da Nang',
+      coords: { x: 175, y: 200 },
+      evisa: true,
+      voa: true,
+      hours: '24/7',
+      notes: t('borderMap.noteDaNang')
+    },
+    {
+      id: 3,
+      name: t('borderMap.camRanh'),
+      nameEn: 'Cam Ranh Airport',
+      type: 'airport',
+      city: 'Nha Trang',
+      coords: { x: 165, y: 310 },
+      evisa: true,
+      voa: true,
+      hours: '24/7',
+      notes: t('borderMap.noteCamRanh')
+    },
+    {
+      id: 4,
+      name: t('borderMap.tanSonNhat'),
+      nameEn: 'Tan Son Nhat Airport',
+      type: 'airport',
+      city: 'Ho Chi Minh',
+      coords: { x: 100, y: 400 },
+      evisa: true,
+      voa: true,
+      hours: '24/7',
+      notes: t('borderMap.noteTanSonNhat')
+    },
+    {
+      id: 5,
+      name: t('borderMap.phuQuoc'),
+      nameEn: 'Phu Quoc Airport',
+      type: 'airport',
+      city: 'Phu Quoc',
+      coords: { x: 55, y: 445 },
+      evisa: true,
+      voa: true,
+      hours: '24/7',
+      notes: t('borderMap.notePhuQuoc')
+    },
+    {
+      id: 6,
+      name: t('borderMap.mocBai'),
+      nameEn: 'Moc Bai Border',
+      type: 'land',
+      city: 'Tay Ninh',
+      coords: { x: 85, y: 385 },
+      evisa: true,
+      voa: false,
+      hours: '7:00-22:00',
+      notes: t('borderMap.noteMocBai')
+    },
+    {
+      id: 7,
+      name: t('borderMap.laoBao'),
+      nameEn: 'Lao Bao Border',
+      type: 'land',
+      city: 'Quang Tri',
+      coords: { x: 155, y: 175 },
+      evisa: true,
+      voa: false,
+      hours: '7:00-19:00',
+      notes: t('borderMap.noteLaoBao')
+    }
+  ]
 
   const filteredCrossings = borderCrossings.filter(
     c => filter === 'all' || c.type === filter
@@ -112,10 +114,10 @@ export function BorderMap() {
   return (
     <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-        <span>🗺️</span> Пункты пересечения границы
+        <span>🗺️</span> {t('borderMap.title')}
       </h3>
       <p className="text-gray-500 dark:text-gray-400 mb-6">
-        Где можно въехать во Вьетнам с E-Visa
+        {t('borderMap.subtitle')}
       </p>
 
       {/* Filters */}
@@ -128,7 +130,7 @@ export function BorderMap() {
               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
           }`}
         >
-          Все ({borderCrossings.length})
+          {t('borderMap.all')} ({borderCrossings.length})
         </button>
         <button
           onClick={() => setFilter('airport')}
@@ -138,7 +140,7 @@ export function BorderMap() {
               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
           }`}
         >
-          ✈️ Аэропорты
+          ✈️ {t('borderMap.airports')}
         </button>
         <button
           onClick={() => setFilter('land')}
@@ -148,7 +150,7 @@ export function BorderMap() {
               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
           }`}
         >
-          🚗 Наземные
+          🚗 {t('borderMap.land')}
         </button>
       </div>
 
@@ -208,10 +210,10 @@ export function BorderMap() {
 
           <div className="absolute bottom-4 left-4 flex gap-3 text-xs">
             <span className="flex items-center gap-1">
-              <span className="w-3 h-3 bg-blue-500 rounded-full"></span> Аэропорт
+              <span className="w-3 h-3 bg-blue-500 rounded-full"></span> {t('borderMap.airport')}
             </span>
             <span className="flex items-center gap-1">
-              <span className="w-3 h-3 bg-orange-500 rounded-full"></span> Наземный
+              <span className="w-3 h-3 bg-orange-500 rounded-full"></span> {t('borderMap.land')}
             </span>
           </div>
         </div>
@@ -230,29 +232,29 @@ export function BorderMap() {
 
               <div className="space-y-3 text-sm">
                 <div className="flex justify-between">
-                  <span className="text-gray-500 dark:text-gray-400">Город:</span>
+                  <span className="text-gray-500 dark:text-gray-400">{t('borderMap.city')}</span>
                   <span className="font-medium text-gray-900 dark:text-white">{selected.city}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500 dark:text-gray-400">Тип:</span>
+                  <span className="text-gray-500 dark:text-gray-400">{t('borderMap.type')}</span>
                   <span className="font-medium text-gray-900 dark:text-white">
                     {typeNames[selected.type as keyof typeof typeNames]}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500 dark:text-gray-400">Часы работы:</span>
+                  <span className="text-gray-500 dark:text-gray-400">{t('borderMap.hours')}</span>
                   <span className="font-medium text-gray-900 dark:text-white">{selected.hours}</span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500 dark:text-gray-400">E-Visa:</span>
+                  <span className="text-gray-500 dark:text-gray-400">{t('borderMap.evisa')}</span>
                   <span className={selected.evisa ? 'text-green-600' : 'text-red-600'}>
-                    {selected.evisa ? '✓ Принимается' : '✗ Не принимается'}
+                    {selected.evisa ? `✓ ${t('borderMap.accepted')}` : `✗ ${t('borderMap.notAccepted')}`}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-500 dark:text-gray-400">Виза по прилёту:</span>
+                  <span className="text-gray-500 dark:text-gray-400">{t('borderMap.voa')}</span>
                   <span className={selected.voa ? 'text-green-600' : 'text-red-600'}>
-                    {selected.voa ? '✓ Доступна' : '✗ Недоступна'}
+                    {selected.voa ? `✓ ${t('borderMap.available')}` : `✗ ${t('borderMap.notAvailable')}`}
                   </span>
                 </div>
               </div>
@@ -264,7 +266,7 @@ export function BorderMap() {
           ) : (
             <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-8 text-center">
               <p className="text-gray-500 dark:text-gray-400">
-                👆 Нажмите на точку на карте для просмотра информации
+                👆 {t('borderMap.clickToView')}
               </p>
             </div>
           )}

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef, useEffect } from 'react'
+import { useTranslation } from './TranslationProvider'
 
 interface Message {
   id: number
@@ -8,55 +9,63 @@ interface Message {
   isBot: boolean
 }
 
-const quickQuestions = [
-  'Нужна ли виза на 30 дней?',
-  'Как оформить E-Visa?',
-  'Какие документы нужны?',
-  'Сколько стоит виза?'
-]
-
-const botResponses: Record<string, string> = {
-  'нужна ли виза на 30 дней': 'Нет! Граждане РФ могут находиться во Вьетнаме до 45 дней без визы. Вам нужен только загранпаспорт со сроком действия минимум 6 месяцев.',
-  'как оформить e-visa': 'E-Visa оформляется на официальном сайте evisa.xuatnhapcanh.gov.vn. Заполните анкету, загрузите фото и оплатите $25. Срок оформления 3-5 рабочих дней.',
-  'какие документы нужны': 'Для безвизового въезда: загранпаспорт (действителен 6+ месяцев). Для E-Visa: загранпаспорт, фото 4x6 см, данные о проживании.',
-  'сколько стоит виза': 'Безвизовый въезд (до 45 дней) — бесплатно. E-Visa — $25. Виза по прилёту — $25-50. Консульская виза — от $50.',
-  'default': 'Спасибо за вопрос! К сожалению, я пока не могу ответить на него автоматически. Напишите нам в Telegram @vietvisa_support для консультации.'
-}
-
-function getResponse(question: string): string {
-  const q = question.toLowerCase()
-  for (const [key, response] of Object.entries(botResponses)) {
-    if (key !== 'default' && q.includes(key)) {
-      return response
-    }
-  }
-  // Check for keywords
-  if (q.includes('виза') && (q.includes('30') || q.includes('45') || q.includes('нужн'))) {
-    return botResponses['нужна ли виза на 30 дней']
-  }
-  if (q.includes('e-visa') || q.includes('электронн') || q.includes('оформ')) {
-    return botResponses['как оформить e-visa']
-  }
-  if (q.includes('документ') || q.includes('паспорт') || q.includes('фото')) {
-    return botResponses['какие документы нужны']
-  }
-  if (q.includes('стоит') || q.includes('цена') || q.includes('сколько') || q.includes('$')) {
-    return botResponses['сколько стоит виза']
-  }
-  return botResponses['default']
-}
-
 export function ChatBot() {
+  const { t, locale } = useTranslation()
   const [isOpen, setIsOpen] = useState(false)
-  const [messages, setMessages] = useState<Message[]>([
-    { id: 1, text: 'Привет! Я помогу разобраться с визой во Вьетнам. Задайте вопрос или выберите из списка ниже.', isBot: true }
-  ])
+  const [messages, setMessages] = useState<Message[]>([])
   const [input, setInput] = useState('')
   const messagesEndRef = useRef<HTMLDivElement>(null)
+
+  const quickQuestions = [
+    t('chatbot.q1'),
+    t('chatbot.q2'),
+    t('chatbot.q3'),
+    t('chatbot.q4')
+  ]
+
+  const botResponses: Record<string, Record<string, string>> = {
+    ru: {
+      'виза': 'Нет! Граждане РФ могут находиться во Вьетнаме до 45 дней без визы. Вам нужен только загранпаспорт со сроком действия минимум 6 месяцев.',
+      'e-visa': 'E-Visa оформляется на официальном сайте evisa.xuatnhapcanh.gov.vn. Заполните анкету, загрузите фото и оплатите $25. Срок оформления 3-5 рабочих дней.',
+      'документ': 'Для безвизового въезда: загранпаспорт (действителен 6+ месяцев). Для E-Visa: загранпаспорт, фото 4x6 см, данные о проживании.',
+      'стоит': 'Безвизовый въезд (до 45 дней) — бесплатно. E-Visa — $25. Виза по прилёту — $25-50. Консульская виза — от $50.',
+      'default': 'Спасибо за вопрос! К сожалению, я пока не могу ответить на него автоматически. Напишите нам в Telegram @vietvisa_support для консультации.'
+    },
+    en: {
+      'visa': 'No! You can stay in Vietnam up to 45 days without a visa. You only need a passport valid for at least 6 months.',
+      'e-visa': 'E-Visa is processed on the official website evisa.xuatnhapcanh.gov.vn. Fill out the form, upload photo and pay $25. Processing time is 3-5 business days.',
+      'document': 'For visa-free entry: passport (valid 6+ months). For E-Visa: passport, 4x6 cm photo, accommodation details.',
+      'cost': 'Visa-free entry (up to 45 days) — free. E-Visa — $25. Visa on arrival — $25-50. Consular visa — from $50.',
+      'default': 'Thank you for your question! Unfortunately, I cannot answer it automatically. Contact us on Telegram @vietvisa_support for consultation.'
+    },
+    vi: {
+      'visa': 'Không! Bạn có thể ở Việt Nam đến 45 ngày mà không cần thị thực. Bạn chỉ cần hộ chiếu có hiệu lực ít nhất 6 tháng.',
+      'e-visa': 'E-Visa được xử lý trên trang web chính thức evisa.xuatnhapcanh.gov.vn. Điền đơn, tải ảnh lên và thanh toán $25. Thời gian xử lý 3-5 ngày làm việc.',
+      'document': 'Để nhập cảnh miễn thị thực: hộ chiếu (có hiệu lực 6+ tháng). Để có E-Visa: hộ chiếu, ảnh 4x6 cm, chi tiết chỗ ở.',
+      'cost': 'Nhập cảnh miễn thị thực (đến 45 ngày) — miễn phí. E-Visa — $25. Thị thực khi đến — $25-50. Thị thực lãnh sự — từ $50.',
+      'default': 'Cảm ơn câu hỏi của bạn! Rất tiếc, tôi không thể trả lời tự động. Liên hệ với chúng tôi qua Telegram @vietvisa_support để được tư vấn.'
+    }
+  }
+
+  useEffect(() => {
+    setMessages([{ id: 1, text: t('chatbot.greeting'), isBot: true }])
+  }, [locale, t])
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
   }, [messages])
+
+  const getResponse = (question: string): string => {
+    const q = question.toLowerCase()
+    const responses = botResponses[locale] || botResponses['en']
+
+    for (const [key, response] of Object.entries(responses)) {
+      if (key !== 'default' && q.includes(key)) {
+        return response
+      }
+    }
+    return responses['default']
+  }
 
   const sendMessage = (text: string) => {
     if (!text.trim()) return
@@ -96,11 +105,11 @@ export function ChatBot() {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[350px] h-[500px] bg-white rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200">
+        <div className="fixed bottom-24 right-6 w-[350px] h-[500px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
           {/* Header */}
           <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4">
-            <h4 className="font-bold text-lg">Визовый помощник</h4>
-            <p className="text-sm text-green-100">Онлайн • Отвечу мгновенно</p>
+            <h4 className="font-bold text-lg">{t('chatbot.title')}</h4>
+            <p className="text-sm text-green-100">{t('chatbot.online')} • {t('chatbot.responseTime')}</p>
           </div>
 
           {/* Messages */}
@@ -113,7 +122,7 @@ export function ChatBot() {
                 <div
                   className={`max-w-[80%] p-3 rounded-2xl ${
                     msg.isBot
-                      ? 'bg-gray-100 text-gray-800 rounded-tl-none'
+                      ? 'bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-tl-none'
                       : 'bg-green-500 text-white rounded-tr-none'
                   }`}
                 >
@@ -131,7 +140,7 @@ export function ChatBot() {
                 <button
                   key={q}
                   onClick={() => sendMessage(q)}
-                  className="text-sm px-3 py-1 bg-green-50 text-green-700 rounded-full hover:bg-green-100 transition"
+                  className="text-sm px-3 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full hover:bg-green-100 dark:hover:bg-green-900/50 transition"
                 >
                   {q}
                 </button>
@@ -140,15 +149,15 @@ export function ChatBot() {
           )}
 
           {/* Input */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t dark:border-gray-700">
             <div className="flex gap-2">
               <input
                 type="text"
                 value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && sendMessage(input)}
-                placeholder="Введите вопрос..."
-                className="flex-1 px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-green-500"
+                placeholder={t('chatbot.placeholder')}
+                className="flex-1 px-4 py-2 border dark:border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               />
               <button
                 onClick={() => sendMessage(input)}

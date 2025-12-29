@@ -2,36 +2,10 @@
 
 import { useState } from 'react'
 import { trackEvent } from './Analytics'
-
-const services = [
-  {
-    id: 'evisa-standard',
-    name: 'E-Visa стандарт',
-    description: 'Оформление за 3-5 рабочих дней',
-    price: 35,
-    currency: 'USD',
-    features: ['Проверка документов', 'Заполнение анкеты', 'Email поддержка']
-  },
-  {
-    id: 'evisa-express',
-    name: 'E-Visa экспресс',
-    description: 'Оформление за 1-2 рабочих дня',
-    price: 55,
-    currency: 'USD',
-    popular: true,
-    features: ['Срочная обработка', 'Проверка документов', 'Заполнение анкеты', 'Приоритетная поддержка']
-  },
-  {
-    id: 'full-package',
-    name: 'Полный пакет',
-    description: 'Виза + страховка + консультация',
-    price: 85,
-    currency: 'USD',
-    features: ['E-Visa экспресс', 'Страховка $50,000', 'Персональный менеджер', 'Помощь 24/7']
-  }
-]
+import { useTranslation } from './TranslationProvider'
 
 export function PaymentWidget() {
+  const { t } = useTranslation()
   const [selectedService, setSelectedService] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
   const [showForm, setShowForm] = useState(false)
@@ -40,6 +14,34 @@ export function PaymentWidget() {
     email: '',
     phone: ''
   })
+
+  const services = [
+    {
+      id: 'evisa-standard',
+      name: t('payment.evisaStandard'),
+      description: t('payment.evisaStandardDesc'),
+      price: 35,
+      currency: 'USD',
+      features: [t('payment.docCheck'), t('payment.formFill'), t('payment.emailSupport')]
+    },
+    {
+      id: 'evisa-express',
+      name: t('payment.evisaExpress'),
+      description: t('payment.evisaExpressDesc'),
+      price: 55,
+      currency: 'USD',
+      popular: true,
+      features: [t('payment.urgentProcessing'), t('payment.docCheck'), t('payment.formFill'), t('payment.prioritySupport')]
+    },
+    {
+      id: 'full-package',
+      name: t('payment.fullPackage'),
+      description: t('payment.fullPackageDesc'),
+      price: 85,
+      currency: 'USD',
+      features: [t('payment.evisaExpress'), t('payment.insurance50k'), t('payment.personalManager'), t('payment.support247')]
+    }
+  ]
 
   const handleSelect = (serviceId: string) => {
     setSelectedService(serviceId)
@@ -58,7 +60,7 @@ export function PaymentWidget() {
 
     // In real implementation, redirect to payment gateway
     // For demo, show success message
-    alert('Демо: В реальной версии здесь будет переход к оплате через ЮKassa/Stripe')
+    alert('Demo: In production this would redirect to payment gateway (YooKassa/Stripe)')
 
     // Send notification
     await fetch('/api/telegram', {
@@ -80,10 +82,10 @@ export function PaymentWidget() {
   return (
     <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-        <span>💳</span> Оформить визу онлайн
+        <span>💳</span> {t('payment.title')}
       </h3>
       <p className="text-gray-500 dark:text-gray-400 mb-6">
-        Выберите пакет услуг и оплатите онлайн
+        {t('payment.subtitle')}
       </p>
 
       {!showForm ? (
@@ -100,7 +102,7 @@ export function PaymentWidget() {
             >
               {service.popular && (
                 <span className="absolute -top-3 right-4 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white text-xs font-bold rounded-full">
-                  Популярный
+                  {t('payment.popular')}
                 </span>
               )}
 
@@ -130,40 +132,40 @@ export function PaymentWidget() {
         <div className="space-y-4">
           <div className="p-4 bg-green-50 dark:bg-green-900/30 rounded-xl">
             <p className="text-sm text-green-700 dark:text-green-300">
-              Выбрано: <strong>{services.find(s => s.id === selectedService)?.name}</strong>
+              {t('payment.selected')} <strong>{services.find(s => s.id === selectedService)?.name}</strong>
             </p>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Имя *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('payment.name')} *</label>
             <input
               type="text"
               value={formData.name}
               onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="Иван Иванов"
+              placeholder={t('payment.namePlaceholder')}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('payment.email')} *</label>
             <input
               type="email"
               value={formData.email}
               onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="email@example.com"
+              placeholder={t('payment.emailPlaceholder')}
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Телефон</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('payment.phone')}</label>
             <input
               type="tel"
               value={formData.phone}
               onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="+7 999 123-45-67"
+              placeholder={t('payment.phonePlaceholder')}
             />
           </div>
 
@@ -172,23 +174,23 @@ export function PaymentWidget() {
               onClick={() => setShowForm(false)}
               className="flex-1 py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
             >
-              Назад
+              {t('payment.back')}
             </button>
             <button
               onClick={handlePayment}
               disabled={loading || !formData.name || !formData.email}
               className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Обработка...' : `Оплатить $${services.find(s => s.id === selectedService)?.price}`}
+              {loading ? t('payment.processing') : `${t('payment.pay')} $${services.find(s => s.id === selectedService)?.price}`}
             </button>
           </div>
         </div>
       )}
 
       <div className="mt-6 flex items-center justify-center gap-4 text-gray-400 text-sm">
-        <span>🔒 Безопасная оплата</span>
-        <span>💳 Visa / MC</span>
-        <span>🏦 СБП</span>
+        <span>🔒 {t('payment.securePayment')}</span>
+        <span>💳 {t('payment.cards')}</span>
+        <span>🏦 {t('payment.sbp')}</span>
       </div>
     </div>
   )

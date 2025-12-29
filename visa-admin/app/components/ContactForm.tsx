@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import { trackEvent } from './Analytics'
+import { useTranslation } from './TranslationProvider'
 
 export function ContactForm() {
+  const { t } = useTranslation()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -49,8 +51,8 @@ export function ContactForm() {
     return (
       <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700 text-center">
         <div className="text-6xl mb-4">✅</div>
-        <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">Заявка отправлена!</h3>
-        <p className="text-gray-600 dark:text-gray-400">Мы свяжемся с вами в течение 24 часов</p>
+        <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">{t('contact.success')}</h3>
+        <p className="text-gray-600 dark:text-gray-400">{t('contact.successMsg')}</p>
       </div>
     )
   }
@@ -58,49 +60,49 @@ export function ContactForm() {
   return (
     <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
-        <span>📝</span> Оставить заявку
+        <span>📝</span> {t('contact.formTitle')}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-6">Поможем оформить визу под ключ</p>
+      <p className="text-gray-500 dark:text-gray-400 mb-6">{t('contact.formSubtitle')}</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Имя *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.name')} *</label>
             <input
               type="text"
               required
               value={formData.name}
               onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="Иван Иванов"
+              placeholder={t('payment.namePlaceholder')}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Email *</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.email')} *</label>
             <input
               type="email"
               required
               value={formData.email}
               onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="email@example.com"
+              placeholder={t('payment.emailPlaceholder')}
             />
           </div>
         </div>
 
         <div className="grid md:grid-cols-2 gap-4">
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Телефон</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.phone')}</label>
             <input
               type="tel"
               value={formData.phone}
               onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
               className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
-              placeholder="+7 999 123-45-67"
+              placeholder={t('payment.phonePlaceholder')}
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Дата прибытия</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.arrivalDate')}</label>
             <input
               type="date"
               value={formData.arrivalDate}
@@ -111,28 +113,28 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Тип визы</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.visaType')}</label>
           <select
             value={formData.visaType}
             onChange={e => setFormData(prev => ({ ...prev, visaType: e.target.value }))}
             className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
-            <option value="free">Безвизовый въезд (до 45 дней)</option>
-            <option value="evisa">E-Visa (до 90 дней)</option>
-            <option value="voa">Виза по прилёту</option>
-            <option value="consul">Консульская виза</option>
-            <option value="other">Не знаю, нужна консультация</option>
+            <option value="free">{t('visaData.visaFree')} ({t('visaData.upTo45Days')})</option>
+            <option value="evisa">{t('visaData.evisa')} ({t('visaData.upTo90Days')})</option>
+            <option value="voa">{t('visaData.voa')}</option>
+            <option value="consul">{t('visaData.consular')}</option>
+            <option value="other">{t('chatbot.q3')}</option>
           </select>
         </div>
 
         <div>
-          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Сообщение</label>
+          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.message')}</label>
           <textarea
             value={formData.message}
             onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
             className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
             rows={3}
-            placeholder="Опишите вашу ситуацию или задайте вопрос..."
+            placeholder={t('contact.messagePlaceholder')}
           />
         </div>
 
@@ -147,15 +149,15 @@ export function ContactForm() {
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
               </svg>
-              Отправляем...
+              {t('contact.submitting')}
             </span>
           ) : (
-            'Отправить заявку'
+            t('contact.submit')
           )}
         </button>
 
         <p className="text-xs text-gray-400 text-center">
-          Нажимая кнопку, вы соглашаетесь с обработкой персональных данных
+          {t('contact.privacy')}
         </p>
       </form>
     </div>

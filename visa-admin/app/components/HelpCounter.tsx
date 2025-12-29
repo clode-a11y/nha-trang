@@ -1,13 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-
-const stats = [
-  { label: 'Людям помогли', value: 15420, suffix: '+', icon: '👥' },
-  { label: 'Виз оформлено', value: 3850, suffix: '+', icon: '📄' },
-  { label: 'Лет опыта', value: 7, suffix: '', icon: '🏆' },
-  { label: 'Стран охвачено', value: 12, suffix: '', icon: '🌏' }
-]
+import { useTranslation } from './TranslationProvider'
 
 function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: number }) {
   const [current, setCurrent] = useState(0)
@@ -31,11 +25,19 @@ function AnimatedNumber({ value, duration = 2000 }: { value: number; duration?: 
     return () => clearInterval(timer)
   }, [value, duration])
 
-  return <>{current.toLocaleString('ru-RU')}</>
+  return <>{current.toLocaleString()}</>
 }
 
 export function HelpCounter() {
+  const { t } = useTranslation()
   const [isVisible, setIsVisible] = useState(false)
+
+  const stats = [
+    { label: t('counter.helped'), value: 15420, suffix: '+', icon: '👥' },
+    { label: t('counter.visas'), value: 3850, suffix: '+', icon: '📄' },
+    { label: t('counter.experience'), value: 7, suffix: '', icon: '🏆' },
+    { label: t('counter.countries'), value: 12, suffix: '', icon: '🌏' }
+  ]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -68,7 +70,7 @@ export function HelpCounter() {
 
       <div className="relative z-10">
         <h3 className="text-2xl font-bold text-center mb-8">
-          Нам доверяют тысячи путешественников
+          {t('counter.title')}
         </h3>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -86,7 +88,7 @@ export function HelpCounter() {
 
         <div className="mt-8 text-center">
           <p className="text-gray-400 text-sm">
-            * Данные актуальны на декабрь 2024 года
+            * {t('counter.asOf')}
           </p>
         </div>
       </div>
