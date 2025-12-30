@@ -33,6 +33,7 @@ export function Header() {
     { href: '#calculator', label: t('nav.calculator'), icon: '🧮' },
     { href: '#visas', label: t('nav.visas'), icon: '🛂' },
     { href: '#faq', label: t('nav.faq'), icon: '❓' },
+    { href: '/blog', label: t('nav.blog'), icon: '📚' },
     { href: '#contacts', label: t('nav.contacts'), icon: '📞' },
   ]
 

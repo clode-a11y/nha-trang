@@ -4,7 +4,8 @@
     "visas": "Visas",
     "faq": "FAQ",
     "contacts": "Contacts",
-    "applyVisa": "Apply for Visa"
+    "applyVisa": "Apply for Visa",
+    "blog": "Blog"
   },
   "hero": {
     "badge": "Updated for 2025",
@@ -314,8 +315,7 @@
     "3to5Days": "3-5 days",
     "2to3Days": "2-3 days",
     "5to10Days": "5-10 days"
-  }
-,
+  },
   "map": {
     "title": "Vietnam Map",
     "capital": "Capital",
