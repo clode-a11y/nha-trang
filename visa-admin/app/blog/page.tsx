@@ -47,7 +47,7 @@ export default async function BlogPage() {
           {/* Header */}
           <div className="text-center mb-12">
             <span className="text-4xl mb-4 block">📚</span>
-            <h1 className="text-4xl font-black text-gray-900 dark:text-white mb-4">
+            <h1 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4">
               Блог о Вьетнаме
             </h1>
             <p className="text-gray-600 dark:text-gray-400 text-lg">
@@ -61,10 +61,10 @@ export default async function BlogPage() {
               <Link
                 key={post.id}
                 href={`/blog/${post.slug}`}
-                className="block bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl p-6 shadow-lg border border-white/50 dark:border-gray-700 hover:scale-[1.02] hover:shadow-xl transition-all"
+                className="block bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl p-5 md:p-6 shadow-lg border border-white/50 dark:border-gray-700 hover:scale-[1.02] active:scale-[0.98] hover:shadow-xl transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <span className="text-4xl">
+                  <span className="text-3xl md:text-4xl flex-shrink-0">
                     {categoryIcons[post.category || ''] || '📄'}
                   </span>
                   <div className="flex-1">
@@ -82,7 +82,7 @@ export default async function BlogPage() {
                         })}
                       </span>
                     </div>
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                    <h2 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white mb-2">
                       {post.title}
                     </h2>
                     <p className="text-gray-600 dark:text-gray-400">
@@ -113,7 +113,7 @@ export default async function BlogPage() {
           <div className="text-center mt-12">
             <Link
               href="/"
-              className="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-medium hover:underline"
+              className="inline-flex items-center gap-2 px-4 py-2 text-green-600 dark:text-green-400 font-medium hover:underline active:scale-95 transition"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />

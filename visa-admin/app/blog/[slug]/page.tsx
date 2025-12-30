@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: Props) {
           {/* Back Link */}
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-green-600 dark:text-green-400 font-medium hover:underline mb-6"
+            className="inline-flex items-center gap-2 px-3 py-2 -ml-3 text-green-600 dark:text-green-400 font-medium hover:underline active:scale-95 transition mb-6"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -113,7 +113,7 @@ export default async function ArticlePage({ params }: Props) {
             </div>
 
             {/* Title */}
-            <h1 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6">
               {post.title}
             </h1>
 
@@ -139,7 +139,7 @@ export default async function ArticlePage({ params }: Props) {
             <p className="opacity-90 mb-4">Мы поможем оформить визу во Вьетнам быстро и без проблем</p>
             <Link
               href="/#contacts"
-              className="inline-block bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:scale-105 transition"
+              className="inline-block bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:scale-105 active:scale-95 transition"
             >
               Оставить заявку
             </Link>
@@ -153,7 +153,7 @@ export default async function ArticlePage({ params }: Props) {
                 href={`https://t.me/share/url?url=${encodeURIComponent(`https://visa-admin-henna.vercel.app/blog/${post.slug}`)}&text=${encodeURIComponent(post.title)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition"
+                className="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white hover:scale-110 active:scale-95 transition"
               >
                 📱
               </a>
@@ -161,7 +161,7 @@ export default async function ArticlePage({ params }: Props) {
                 href={`https://wa.me/?text=${encodeURIComponent(post.title + ' ' + `https://visa-admin-henna.vercel.app/blog/${post.slug}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center text-white hover:scale-110 transition"
+                className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white hover:scale-110 active:scale-95 transition"
               >
                 💬
               </a>
