@@ -71,13 +71,13 @@ export default async function HomePage() {
       <StatsSection />
 
       {/* Calculator & Checklist */}
-      <section id="calculator" className="py-20 px-4">
+      <section id="calculator" className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">Инструменты</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Подготовьтесь к поездке</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Подготовьтесь к поездке</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <VisaCalculator />
             <DocumentChecklist />
           </div>
@@ -85,13 +85,13 @@ export default async function HomePage() {
       </section>
 
       {/* Visa Tracker & Payment */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">Сервисы</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Отслеживание и оплата</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Отслеживание и оплата</h2>
           </div>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <VisaTracker />
             <PaymentWidget />
           </div>
@@ -99,22 +99,22 @@ export default async function HomePage() {
       </section>
 
       {/* Visa Comparison */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <VisaComparison />
         </div>
       </section>
 
       {/* Visa Types */}
-      <section id="visas" className="py-20 px-4">
+      <section id="visas" className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">Типы виз</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Выберите подходящий вариант</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Выберите подходящий вариант</h2>
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {visaTypes.map((visa, index) => (
-              <div key={visa.id} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700 hover:scale-105 transition">
+              <div key={visa.id} className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700 hover:scale-105 transition">
                 <div className="text-4xl mb-4">
                   {index === 0 ? '✈️' : index === 1 ? '📱' : '🛂'}
                 </div>
@@ -146,11 +146,11 @@ export default async function HomePage() {
       {/* E-Visa Steps */}
       <section className="py-20 px-4 bg-gradient-to-r from-green-500 via-pink-500 to-orange-500">
         <div className="max-w-4xl mx-auto text-white">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-white/80 font-bold mb-2">Инструкция</p>
-            <h2 className="text-4xl font-black">Как оформить E-Visa</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black">Как оформить E-Visa</h2>
           </div>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-6 sm:gap-8">
             {[
               { step: '1', title: 'Заполните анкету', desc: 'На сайте immigration.gov.vn' },
               { step: '2', title: 'Загрузите фото', desc: 'Формат 4x6 см, белый фон' },
@@ -171,7 +171,7 @@ export default async function HomePage() {
               href="https://evisa.xuatnhapcanh.gov.vn/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-white text-green-600 px-8 py-4 rounded-full font-bold hover:scale-105 transition shadow-xl"
+              className="inline-block bg-white text-green-600 px-6 sm:px-8 py-3 sm:py-4 rounded-full font-bold hover:scale-105 active:scale-95 transition shadow-xl"
             >
               Оформить E-Visa →
             </a>
@@ -180,70 +180,70 @@ export default async function HomePage() {
       </section>
 
       {/* Useful Links */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <UsefulLinks />
         </div>
       </section>
 
       {/* Vietnam Map */}
-      <section id="vietnam-map" className="py-20 px-4">
+      <section id="vietnam-map" className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <VietnamMap />
         </div>
       </section>
 
       {/* Border Map */}
-      <section id="border-map" className="py-20 px-4">
+      <section id="border-map" className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">Пункты въезда</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Карта погранпереходов</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Карта погранпереходов</h2>
           </div>
           <BorderMap />
         </div>
       </section>
 
       {/* Insurance */}
-      <section id="insurance" className="py-20 px-4">
+      <section id="insurance" className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">Подготовка к поездке</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Страхование путешественников</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Страхование путешественников</h2>
           </div>
           <InsuranceWidget />
         </div>
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <Testimonials />
         </div>
       </section>
 
       {/* Help Counter */}
-      <section className="py-20 px-4">
+      <section className="py-12 sm:py-20 px-4">
         <div className="max-w-4xl mx-auto">
           <HelpCounter />
         </div>
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 px-4">
+      <section id="faq" className="py-12 sm:py-20 px-4">
         <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-8 sm:mb-12">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">FAQ</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Частые вопросы</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Частые вопросы</h2>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq) => (
-              <details key={faq.id} className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl shadow-lg border border-white/50 dark:border-gray-700 overflow-hidden">
-                <summary className="flex justify-between items-center cursor-pointer p-6 font-bold text-gray-900 dark:text-white">
+              <details key={faq.id} className="group bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-xl sm:rounded-2xl shadow-lg border border-white/50 dark:border-gray-700 overflow-hidden">
+                <summary className="flex justify-between items-center gap-3 cursor-pointer p-4 sm:p-6 text-sm sm:text-base font-bold text-gray-900 dark:text-white active:bg-gray-50 dark:active:bg-gray-700/50 transition-colors">
                   {faq.question}
-                  <span className="text-green-500 group-open:rotate-180 transition-transform text-xl">▼</span>
+                  <span className="text-green-500 group-open:rotate-180 transition-transform text-base sm:text-xl flex-shrink-0">▼</span>
                 </summary>
-                <div className="px-6 pb-6 text-gray-600 dark:text-gray-400">
+                <div className="px-4 sm:px-6 pb-4 sm:pb-6 text-sm sm:text-base text-gray-600 dark:text-gray-400">
                   {faq.answer}
                 </div>
               </details>
@@ -256,38 +256,38 @@ export default async function HomePage() {
       </section>
 
       {/* Contact Form & Email Subscription */}
-      <section id="contacts" className="py-20 px-4">
+      <section id="contacts" className="py-12 sm:py-20 px-4">
         <div className="max-w-6xl mx-auto space-y-12">
           <div className="text-center">
             <p className="text-green-600 dark:text-green-400 font-bold mb-2">Связаться с нами</p>
-            <h2 className="text-4xl font-black text-gray-900 dark:text-white">Нужна помощь?</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white">Нужна помощь?</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
             <ContactForm />
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* Quick contacts */}
-              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+              <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
                   <span>📞</span> Быстрая связь
                 </h3>
                 <div className="space-y-4">
-                  <a href="https://t.me/vietvisa" className="flex items-center gap-4 p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl hover:scale-[1.02] transition">
-                    <span className="text-2xl">📱</span>
+                  <a href="https://t.me/vietvisa" className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-blue-50 dark:bg-blue-900/30 rounded-xl hover:scale-[1.02] active:scale-[0.98] transition">
+                    <span className="text-xl sm:text-2xl">📱</span>
                     <div>
                       <p className="font-bold text-gray-900 dark:text-white">Telegram</p>
                       <p className="text-sm text-gray-500 dark:text-gray-400">@vietvisa</p>
                     </div>
                   </a>
-                  <a href="https://wa.me/84901234567" className="flex items-center gap-4 p-4 bg-green-50 dark:bg-green-900/30 rounded-xl hover:scale-[1.02] transition">
-                    <span className="text-2xl">💬</span>
+                  <a href="https://wa.me/84901234567" className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-green-50 dark:bg-green-900/30 rounded-xl hover:scale-[1.02] active:scale-[0.98] transition">
+                    <span className="text-xl sm:text-2xl">💬</span>
                     <div>
                       <p className="font-bold text-gray-900 dark:text-white">WhatsApp</p>
                       <p className="text-sm text-gray-500 dark:text-gray-400">+84 901 234 567</p>
                     </div>
                   </a>
-                  <a href="mailto:info@vietvisa.ru" className="flex items-center gap-4 p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:scale-[1.02] transition">
-                    <span className="text-2xl">✉️</span>
+                  <a href="mailto:info@vietvisa.ru" className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:scale-[1.02] active:scale-[0.98] transition">
+                    <span className="text-xl sm:text-2xl">✉️</span>
                     <div>
                       <p className="font-bold text-gray-900 dark:text-white">Email</p>
                       <p className="text-sm text-gray-500 dark:text-gray-400">info@vietvisa.ru</p>

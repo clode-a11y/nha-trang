@@ -108,11 +108,11 @@ export function VisaTracker() {
   }
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
         <span>🔍</span> {t('tracker.title')}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-4 sm:mb-6">
         {t('tracker.subtitle')}
       </p>
 
@@ -126,7 +126,7 @@ export function VisaTracker() {
             value={applicationId}
             onChange={e => setApplicationId(e.target.value.toUpperCase())}
             placeholder={t('tracker.applicationIdPlaceholder')}
-            className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           />
         </div>
 
@@ -139,7 +139,7 @@ export function VisaTracker() {
             value={email}
             onChange={e => setEmail(e.target.value)}
             placeholder={t('tracker.emailPlaceholder')}
-            className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           />
         </div>
 
@@ -150,7 +150,7 @@ export function VisaTracker() {
         <button
           onClick={checkStatus}
           disabled={loading}
-          className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] transition shadow-lg disabled:opacity-50"
+          className="w-full bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition shadow-lg disabled:opacity-50"
         >
           {loading ? (
             <span className="flex items-center justify-center gap-2">
@@ -171,9 +171,9 @@ export function VisaTracker() {
           {/* Status badge */}
           <div className={`p-4 rounded-xl border-2 ${statusColors[status.status]}`}>
             <div className="flex items-center gap-3">
-              <span className="text-2xl">{statusIcons[status.status]}</span>
+              <span className="text-xl sm:text-2xl">{statusIcons[status.status]}</span>
               <div>
-                <p className="font-bold text-lg">{status.statusText}</p>
+                <p className="font-bold text-base sm:text-lg">{status.statusText}</p>
                 <p className="text-sm opacity-75">{t('tracker.application')}: {status.applicationId}</p>
               </div>
             </div>

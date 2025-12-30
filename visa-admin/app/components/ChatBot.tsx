@@ -90,7 +90,7 @@ export function ChatBot() {
       {/* Chat button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 w-16 h-16 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full shadow-lg hover:scale-110 transition-all z-50 flex items-center justify-center"
+        className="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 w-14 sm:w-16 h-14 sm:h-16 bg-gradient-to-r from-green-500 to-emerald-500 text-white rounded-full shadow-lg hover:scale-110 active:scale-95 transition-all z-50 flex items-center justify-center"
       >
         {isOpen ? (
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -105,7 +105,7 @@ export function ChatBot() {
 
       {/* Chat window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[350px] h-[500px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
+        <div className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 left-4 sm:left-auto w-auto sm:w-[350px] h-[70vh] sm:h-[500px] max-h-[500px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
           {/* Header */}
           <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4">
             <h4 className="font-bold text-lg">{t('chatbot.title')}</h4>
@@ -140,7 +140,7 @@ export function ChatBot() {
                 <button
                   key={q}
                   onClick={() => sendMessage(q)}
-                  className="text-sm px-3 py-1 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full hover:bg-green-100 dark:hover:bg-green-900/50 transition"
+                  className="text-xs sm:text-sm px-3 py-1.5 bg-green-50 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full hover:bg-green-100 dark:hover:bg-green-900/50 active:scale-95 transition"
                 >
                   {q}
                 </button>
@@ -157,11 +157,11 @@ export function ChatBot() {
                 onChange={e => setInput(e.target.value)}
                 onKeyPress={e => e.key === 'Enter' && sendMessage(input)}
                 placeholder={t('chatbot.placeholder')}
-                className="flex-1 px-4 py-2 border dark:border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+                className="flex-1 px-4 py-3 text-base border dark:border-gray-600 rounded-full focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               />
               <button
                 onClick={() => sendMessage(input)}
-                className="w-10 h-10 bg-green-500 text-white rounded-full hover:bg-green-600 transition flex items-center justify-center"
+                className="w-11 h-11 sm:w-10 sm:h-10 bg-green-500 text-white rounded-full hover:bg-green-600 active:scale-90 transition flex-shrink-0 flex items-center justify-center"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />

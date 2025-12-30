@@ -39,25 +39,25 @@ export function VisaCalculator() {
   }
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6 flex items-center gap-2">
         <span>🧮</span> {t('calculator.title')}
       </h3>
 
-      <div className="mb-6">
+      <div className="mb-4 sm:mb-6">
         <label className="block text-gray-700 dark:text-gray-300 font-medium mb-2">
           {t('calculator.question')}
         </label>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 sm:gap-4">
           <input
             type="range"
             min="1"
             max="180"
             value={days}
             onChange={(e) => setDays(Number(e.target.value))}
-            className="flex-1 h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-green-500"
+            className="flex-1 h-3 sm:h-2 bg-gray-200 dark:bg-gray-600 rounded-lg appearance-none cursor-pointer accent-green-500"
           />
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-xl font-bold min-w-[80px] text-center">
+          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-3 sm:px-4 py-2 rounded-xl font-bold text-sm sm:text-base min-w-[70px] sm:min-w-[80px] text-center">
             {days} {t('calculator.days')}
           </div>
         </div>
@@ -65,19 +65,19 @@ export function VisaCalculator() {
 
       <button
         onClick={calculate}
-        className="w-full bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] transition shadow-lg"
+        className="w-full bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition shadow-lg"
       >
         {t('calculator.calculate')}
       </button>
 
       {result && (
-        <div className={`mt-6 p-4 rounded-xl ${
+        <div className={`mt-4 sm:mt-6 p-3 sm:p-4 rounded-xl ${
           result.color === 'green' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-700' :
           result.color === 'blue' ? 'bg-blue-50 dark:bg-blue-900/30 border-blue-200 dark:border-blue-700' :
           'bg-orange-50 dark:bg-orange-900/30 border-orange-200 dark:border-orange-700'
         } border-2`}>
           <div className="flex justify-between items-start mb-2">
-            <h4 className={`font-bold text-lg ${
+            <h4 className={`font-bold text-base sm:text-lg ${
               result.color === 'green' ? 'text-green-700 dark:text-green-400' :
               result.color === 'blue' ? 'text-blue-700 dark:text-blue-400' :
               'text-orange-700 dark:text-orange-400'

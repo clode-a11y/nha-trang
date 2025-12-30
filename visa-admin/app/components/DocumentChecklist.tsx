@@ -30,14 +30,14 @@ export function DocumentChecklist() {
   const progress = Math.round((requiredChecked / requiredDocs.length) * 100)
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
         <span>📋</span> {t('checklist.title')}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-6">{t('checklist.subtitle')}</p>
+      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-4 sm:mb-6">{t('checklist.subtitle')}</p>
 
       {/* Progress bar */}
-      <div className="mb-6">
+      <div className="mb-4 sm:mb-6">
         <div className="flex justify-between text-sm mb-2">
           <span className="text-gray-600 dark:text-gray-400">{t('checklist.requiredDocs')}</span>
           <span className="font-bold text-green-600 dark:text-green-400">{requiredChecked}/{requiredDocs.length}</span>
@@ -51,7 +51,7 @@ export function DocumentChecklist() {
       </div>
 
       {/* Required documents */}
-      <div className="space-y-3 mb-6">
+      <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
         <h4 className="font-semibold text-gray-700 dark:text-gray-300 flex items-center gap-2">
           <span className="text-red-500">*</span> {t('checklist.required')}
         </h4>
@@ -81,7 +81,7 @@ export function DocumentChecklist() {
       </div>
 
       {/* Optional documents */}
-      <div className="space-y-3">
+      <div className="space-y-2 sm:space-y-3">
         <h4 className="font-semibold text-gray-700 dark:text-gray-300">{t('checklist.recommended')}</h4>
         {optionalDocs.map(doc => (
           <label
@@ -109,7 +109,7 @@ export function DocumentChecklist() {
       </div>
 
       {progress === 100 && (
-        <div className="mt-6 p-4 bg-green-100 dark:bg-green-900/50 rounded-xl text-center">
+        <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-green-100 dark:bg-green-900/50 rounded-xl text-center">
           <span className="text-2xl">🎉</span>
           <p className="font-bold text-green-700 dark:text-green-400 mt-2">{t('checklist.allReady')}</p>
         </div>

@@ -7,28 +7,28 @@ export function HeroSection() {
 
   return (
     <section className="min-h-screen flex items-center pt-20 pb-10 px-4">
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center w-full">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 sm:gap-12 items-center w-full">
         {/* Content */}
         <div>
-          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur px-4 py-2 rounded-full text-sm font-semibold text-green-700 dark:text-green-400 mb-6 shadow-lg border border-white/50 dark:border-gray-700">
+          <div className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-semibold text-green-700 dark:text-green-400 mb-4 sm:mb-6 shadow-lg border border-white/50 dark:border-gray-700">
             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
             {t('hero.badge')}
           </div>
-          <h1 className="text-5xl md:text-7xl font-black text-gray-900 dark:text-white leading-tight mb-6">
+          <h1 className="text-3xl sm:text-5xl md:text-7xl font-black text-gray-900 dark:text-white leading-tight mb-4 sm:mb-6">
             {t('hero.title')}{' '}
             <span className="bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 bg-clip-text text-transparent">
               {t('hero.titleHighlight')}
             </span>
           </h1>
-          <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
+          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-300 mb-6 sm:mb-8 leading-relaxed">
             {t('hero.description')}
           </p>
-          <div className="flex flex-wrap gap-4">
-            <a href="#calculator" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-xl">
+          <div className="flex flex-wrap justify-center md:justify-start gap-3 sm:gap-4">
+            <a href="#calculator" className="inline-flex items-center gap-2 bg-gradient-to-r from-green-500 via-pink-500 to-orange-500 text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:scale-105 active:scale-95 transition shadow-xl">
               {t('hero.calculatorBtn')}
               <span>🧮</span>
             </a>
-            <a href="#visas" className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white px-8 py-4 rounded-full font-bold text-lg hover:scale-105 transition shadow-xl border border-gray-200 dark:border-gray-700">
+            <a href="#visas" className="inline-flex items-center gap-2 bg-white/80 dark:bg-gray-800 text-gray-900 dark:text-white px-5 sm:px-8 py-3 sm:py-4 rounded-full font-bold text-base sm:text-lg hover:scale-105 active:scale-95 transition shadow-xl border border-gray-200 dark:border-gray-700">
               {t('hero.learnMore')}
               <span>→</span>
             </a>

@@ -60,12 +60,16 @@ export function VisaComparison() {
   ]
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-4 md:p-8 shadow-xl border border-white/50 dark:border-gray-700 overflow-hidden">
-      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-8 shadow-xl border border-white/50 dark:border-gray-700 overflow-hidden">
+      <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
         <span>📊</span> {t('comparison.title')}
       </h3>
 
-      <div className="overflow-x-auto -mx-4 md:-mx-8 px-4 md:px-8">
+      <p className="text-xs text-gray-400 dark:text-gray-500 mb-2 md:hidden flex items-center gap-1">
+        <span>👆</span> Свайпните для сравнения
+      </p>
+
+      <div className="overflow-x-auto -mx-4 md:-mx-8 px-4 md:px-8 scrollbar-hide">
         <table className="w-full min-w-[600px]">
           <thead>
             <tr>
@@ -78,6 +82,7 @@ export function VisaComparison() {
                       ? 'bg-gradient-to-b from-green-100 dark:from-green-900/30 to-transparent'
                       : ''
                   }`}
+                  onClick={() => setHighlighted(highlighted === visa.type ? null : visa.type)}
                   onMouseEnter={() => setHighlighted(visa.type)}
                   onMouseLeave={() => setHighlighted(null)}
                 >

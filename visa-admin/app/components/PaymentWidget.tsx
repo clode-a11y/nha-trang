@@ -80,11 +80,11 @@ export function PaymentWidget() {
   }
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
         <span>💳</span> {t('payment.title')}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-4 sm:mb-6">
         {t('payment.subtitle')}
       </p>
 
@@ -93,7 +93,7 @@ export function PaymentWidget() {
           {services.map(service => (
             <div
               key={service.id}
-              className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all hover:scale-[1.02] ${
+              className={`relative p-4 rounded-xl border-2 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98] ${
                 selectedService === service.id
                   ? 'border-green-500 bg-green-50 dark:bg-green-900/30'
                   : 'border-gray-200 dark:border-gray-600 hover:border-green-300'
@@ -112,7 +112,7 @@ export function PaymentWidget() {
                   <p className="text-sm text-gray-500 dark:text-gray-400">{service.description}</p>
                 </div>
                 <div className="text-right">
-                  <span className="text-2xl font-bold text-green-600 dark:text-green-400">
+                  <span className="text-xl sm:text-2xl font-bold text-green-600 dark:text-green-400">
                     ${service.price}
                   </span>
                 </div>
@@ -142,7 +142,7 @@ export function PaymentWidget() {
               type="text"
               value={formData.name}
               onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               placeholder={t('payment.namePlaceholder')}
             />
           </div>
@@ -153,7 +153,7 @@ export function PaymentWidget() {
               type="email"
               value={formData.email}
               onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               placeholder={t('payment.emailPlaceholder')}
             />
           </div>
@@ -164,7 +164,7 @@ export function PaymentWidget() {
               type="tel"
               value={formData.phone}
               onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               placeholder={t('payment.phonePlaceholder')}
             />
           </div>
@@ -172,14 +172,14 @@ export function PaymentWidget() {
           <div className="flex gap-3">
             <button
               onClick={() => setShowForm(false)}
-              className="flex-1 py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              className="flex-1 py-3 border border-gray-300 dark:border-gray-600 rounded-xl font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 active:scale-[0.98] transition"
             >
               {t('payment.back')}
             </button>
             <button
               onClick={handlePayment}
               disabled={loading || !formData.name || !formData.email}
-              className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loading ? t('payment.processing') : `${t('payment.pay')} $${services.find(s => s.id === selectedService)?.price}`}
             </button>
@@ -187,7 +187,7 @@ export function PaymentWidget() {
         </div>
       )}
 
-      <div className="mt-6 flex items-center justify-center gap-4 text-gray-400 text-sm">
+      <div className="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-gray-400 text-xs sm:text-sm">
         <span>🔒 {t('payment.securePayment')}</span>
         <span>💳 {t('payment.cards')}</span>
         <span>🏦 {t('payment.sbp')}</span>

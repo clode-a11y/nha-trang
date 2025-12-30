@@ -28,7 +28,7 @@ export function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur border border-gray-200 dark:border-gray-700 hover:scale-105 transition"
+        className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-2 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur border border-gray-200 dark:border-gray-700 hover:scale-105 active:scale-95 transition"
       >
         <span>{localeFlags[locale]}</span>
         <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
@@ -45,7 +45,7 @@ export function LanguageSwitcher() {
             <button
               key={loc}
               onClick={() => switchLocale(loc)}
-              className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 transition ${
+              className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 active:bg-gray-200 dark:active:bg-gray-600 transition ${
                 loc === locale ? 'bg-green-50 dark:bg-green-900/30' : ''
               }`}
             >

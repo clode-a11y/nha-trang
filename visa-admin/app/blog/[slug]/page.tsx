@@ -43,6 +43,7 @@ export default async function ArticlePage({ params }: Props) {
     'E-Visa': 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300',
     'Путешествия': 'bg-purple-100 text-purple-700 dark:bg-purple-900/40 dark:text-purple-300',
     'Советы': 'bg-orange-100 text-orange-700 dark:bg-orange-900/40 dark:text-orange-300',
+    'Безопасность': 'bg-red-100 text-red-700 dark:bg-red-900/40 dark:text-red-300',
   }
 
   // Simple markdown to HTML conversion
@@ -95,15 +96,15 @@ export default async function ArticlePage({ params }: Props) {
           </Link>
 
           {/* Article */}
-          <article className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
+          <article className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
             {/* Meta */}
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-4">
               {post.category && (
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${categoryColors[post.category] || 'bg-gray-100 text-gray-700'}`}>
+                <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium ${categoryColors[post.category] || 'bg-gray-100 text-gray-700'}`}>
                   {post.category}
                 </span>
               )}
-              <span className="text-sm text-gray-400">
+              <span className="text-xs sm:text-sm text-gray-400">
                 {post.publishedAt?.toLocaleDateString('ru-RU', {
                   day: 'numeric',
                   month: 'long',
@@ -113,20 +114,20 @@ export default async function ArticlePage({ params }: Props) {
             </div>
 
             {/* Title */}
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-4 sm:mb-6">
               {post.title}
             </h1>
 
             {/* Excerpt */}
             {post.excerpt && (
-              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 pb-8 border-b dark:border-gray-700">
+              <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 mb-6 sm:mb-8 pb-6 sm:pb-8 border-b dark:border-gray-700">
                 {post.excerpt}
               </p>
             )}
 
             {/* Content */}
             <div
-              className="prose prose-lg dark:prose-invert max-w-none"
+              className="prose prose-sm sm:prose-lg dark:prose-invert max-w-none overflow-x-auto"
               dangerouslySetInnerHTML={{
                 __html: `<p class="mb-4 text-gray-700 dark:text-gray-300">${formatContent(post.content)}</p>`
               }}
@@ -134,19 +135,19 @@ export default async function ArticlePage({ params }: Props) {
           </article>
 
           {/* CTA */}
-          <div className="mt-8 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-2xl p-6 text-white text-center">
-            <h3 className="text-xl font-bold mb-2">Нужна помощь с визой?</h3>
-            <p className="opacity-90 mb-4">Мы поможем оформить визу во Вьетнам быстро и без проблем</p>
+          <div className="mt-6 sm:mt-8 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-2xl p-5 sm:p-6 text-white text-center">
+            <h3 className="text-lg sm:text-xl font-bold mb-2">Нужна помощь с визой?</h3>
+            <p className="text-sm sm:text-base opacity-90 mb-4">Мы поможем оформить визу во Вьетнам быстро и без проблем</p>
             <Link
               href="/#contacts"
-              className="inline-block bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:scale-105 active:scale-95 transition"
+              className="inline-block bg-white text-green-600 px-5 sm:px-6 py-3 rounded-full font-bold hover:scale-105 active:scale-95 transition"
             >
               Оставить заявку
             </Link>
           </div>
 
           {/* Share */}
-          <div className="mt-8 text-center">
+          <div className="mt-6 sm:mt-8 text-center">
             <p className="text-gray-500 dark:text-gray-400 mb-3">Поделиться статьёй:</p>
             <div className="flex justify-center gap-3">
               <a

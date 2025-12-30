@@ -49,23 +49,23 @@ export function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700 text-center">
+      <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700 text-center">
         <div className="text-6xl mb-4">✅</div>
-        <h3 className="text-2xl font-bold text-green-600 dark:text-green-400 mb-2">{t('contact.success')}</h3>
+        <h3 className="text-xl sm:text-2xl font-bold text-green-600 dark:text-green-400 mb-2">{t('contact.success')}</h3>
         <p className="text-gray-600 dark:text-gray-400">{t('contact.successMsg')}</p>
       </div>
     )
   }
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
         <span>📝</span> {t('contact.formTitle')}
       </h3>
       <p className="text-gray-500 dark:text-gray-400 mb-6">{t('contact.formSubtitle')}</p>
 
       <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.name')} *</label>
             <input
@@ -73,7 +73,7 @@ export function ContactForm() {
               required
               value={formData.name}
               onChange={e => setFormData(prev => ({ ...prev, name: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               placeholder={t('payment.namePlaceholder')}
             />
           </div>
@@ -84,20 +84,20 @@ export function ContactForm() {
               required
               value={formData.email}
               onChange={e => setFormData(prev => ({ ...prev, email: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               placeholder={t('payment.emailPlaceholder')}
             />
           </div>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="grid md:grid-cols-2 gap-3 sm:gap-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">{t('contact.phone')}</label>
             <input
               type="tel"
               value={formData.phone}
               onChange={e => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
               placeholder={t('payment.phonePlaceholder')}
             />
           </div>
@@ -107,7 +107,7 @@ export function ContactForm() {
               type="date"
               value={formData.arrivalDate}
               onChange={e => setFormData(prev => ({ ...prev, arrivalDate: e.target.value }))}
-              className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+              className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
             />
           </div>
         </div>
@@ -117,7 +117,7 @@ export function ContactForm() {
           <select
             value={formData.visaType}
             onChange={e => setFormData(prev => ({ ...prev, visaType: e.target.value }))}
-            className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+            className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
           >
             <option value="free">{t('visaData.visaFree')} ({t('visaData.upTo45Days')})</option>
             <option value="evisa">{t('visaData.evisa')} ({t('visaData.upTo90Days')})</option>
@@ -132,7 +132,7 @@ export function ContactForm() {
           <textarea
             value={formData.message}
             onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
-            className="w-full px-4 py-3 border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
+            className="w-full px-4 py-3 text-base border border-gray-200 dark:border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-green-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white resize-none"
             rows={3}
             placeholder={t('contact.messagePlaceholder')}
           />
@@ -141,7 +141,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === 'loading'}
-          className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white py-4 rounded-xl font-bold hover:scale-[1.02] transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 text-white py-3 sm:py-4 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === 'loading' ? (
             <span className="flex items-center justify-center gap-2">

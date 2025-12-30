@@ -43,14 +43,23 @@ export const metadata: Metadata = {
     siteName: "VietVisa",
     title: "Виза во Вьетнам 2025 — Полное руководство",
     description: "Актуальная информация о визах во Вьетнам. Безвизовый въезд до 45 дней, E-Visa, калькулятор визы.",
+    images: [
+      {
+        url: "/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "VietVisa - Визы во Вьетнам 2025",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Виза во Вьетнам 2025",
     description: "Полное руководство по визам во Вьетнам для граждан России",
+    images: ["/twitter-image"],
   },
   alternates: {
-    canonical: "https://vietnam-visa-guide.vercel.app"
+    canonical: "https://visa-admin-henna.vercel.app"
   },
   verification: {
     google: "your-google-verification-code"
@@ -72,11 +81,11 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "VietVisa",
-              "url": "https://vietnam-visa-guide.vercel.app",
+              "url": "https://visa-admin-henna.vercel.app",
               "description": "Информация о визах во Вьетнам для граждан России",
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://vietnam-visa-guide.vercel.app/?q={search_term_string}",
+                "target": "https://visa-admin-henna.vercel.app/?q={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })
