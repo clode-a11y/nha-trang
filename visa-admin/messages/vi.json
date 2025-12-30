@@ -315,4 +315,33 @@
     "2to3Days": "2-3 ngày",
     "5to10Days": "5-10 ngày"
   }
+,
+  "map": {
+    "title": "Bản đồ Việt Nam",
+    "capital": "Thủ đô",
+    "recommended": "Đề xuất",
+    "cities": "Thành phố",
+    "capitalBadge": "Thủ đô",
+    "airports": "Sân bay quốc tế",
+    "hanoi": "Hà Nội",
+    "hanoiDesc": "Thủ đô Việt Nam. Sân bay Nội Bài (HAN). Đền chùa, bảo tàng.",
+    "haiphong": "Hải Phòng",
+    "haiphongDesc": "Thành phố cảng lớn. Cửa ngõ vịnh Hạ Long.",
+    "halong": "Hạ Long",
+    "halongDesc": "Vịnh với hàng ngàn đảo. Di sản UNESCO.",
+    "danang": "Đà Nẵng",
+    "danangDesc": "Thành phố lớn thứ ba. Sân bay DAD. Biển, cầu.",
+    "hue": "Huế",
+    "hueDesc": "Cố đô. Hoàng thành, lăng tẩm.",
+    "nhatrang": "Nha Trang",
+    "nhatrangDesc": "Khu nghỉ dưỡng nổi tiếng! Sân bay Cam Ranh (CXR). Biển, lặn.",
+    "dalat": "Đà Lạt",
+    "dalatDesc": "Thành phố cao nguyên. Khí hậu mát mẻ, thác nước.",
+    "hochiminh": "TP. Hồ Chí Minh",
+    "hochiminhDesc": "Thành phố lớn nhất. Sân bay SGN. Kinh doanh, mua sắm.",
+    "cantho": "Cần Thơ",
+    "canthoDesc": "Đồng bằng sông Cửu Long. Chợ nổi, ruộng lúa.",
+    "phuquoc": "Phú Quốc",
+    "phuquocDesc": "Đảo nhiệt đới. Sân bay PQC. Biển, safari."
+  }
 }

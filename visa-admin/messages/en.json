@@ -315,4 +315,33 @@
     "2to3Days": "2-3 days",
     "5to10Days": "5-10 days"
   }
+,
+  "map": {
+    "title": "Vietnam Map",
+    "capital": "Capital",
+    "recommended": "Recommended",
+    "cities": "Cities",
+    "capitalBadge": "Capital",
+    "airports": "International Airports",
+    "hanoi": "Hanoi",
+    "hanoiDesc": "Capital of Vietnam. Noi Bai Airport (HAN). Temples, museums.",
+    "haiphong": "Hai Phong",
+    "haiphongDesc": "Major port city. Gateway to Ha Long Bay.",
+    "halong": "Ha Long",
+    "halongDesc": "Bay with thousands of islands. UNESCO site.",
+    "danang": "Da Nang",
+    "danangDesc": "Third largest city. DAD Airport. Beaches, bridges.",
+    "hue": "Hue",
+    "hueDesc": "Ancient capital. Imperial City, royal tombs.",
+    "nhatrang": "Nha Trang",
+    "nhatrangDesc": "Popular resort! Cam Ranh Airport (CXR). Beaches, diving.",
+    "dalat": "Da Lat",
+    "dalatDesc": "Mountain resort. Cool climate, waterfalls.",
+    "hochiminh": "Ho Chi Minh City",
+    "hochiminhDesc": "Largest city. SGN Airport. Business, shopping.",
+    "cantho": "Can Tho",
+    "canthoDesc": "Mekong Delta. Floating markets, rice fields.",
+    "phuquoc": "Phu Quoc",
+    "phuquocDesc": "Tropical island. PQC Airport. Beaches, safari."
+  }
 }

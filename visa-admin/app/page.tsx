@@ -14,6 +14,7 @@ import { ThemeToggle } from './components/ThemeToggle'
 import { VisaTracker } from './components/VisaTracker'
 import { InsuranceWidget } from './components/InsuranceWidget'
 import { BorderMap } from './components/BorderMap'
+import { VietnamMap } from './components/VietnamMap'
 import { PaymentWidget } from './components/PaymentWidget'
 import { Header } from './components/Header'
 import { HeroSection } from './components/HeroSection'
@@ -182,6 +183,13 @@ export default async function HomePage() {
       <section className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
           <UsefulLinks />
+        </div>
+      </section>
+
+      {/* Vietnam Map */}
+      <section id="vietnam-map" className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <VietnamMap />
         </div>
       </section>
 
