@@ -49,11 +49,11 @@ export function EmailSubscription() {
   }
 
   return (
-    <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-3xl p-8 shadow-xl text-white">
+    <div className="bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl text-white">
       <div className="max-w-2xl mx-auto text-center">
-        <span className="text-4xl mb-4 block">📬</span>
-        <h3 className="text-2xl font-bold mb-2">{t('subscription.title')}</h3>
-        <p className="text-green-100 mb-6">
+        <span className="text-3xl sm:text-4xl mb-3 sm:mb-4 block">📬</span>
+        <h3 className="text-xl sm:text-2xl font-bold mb-2">{t('subscription.title')}</h3>
+        <p className="text-green-100 mb-4 sm:mb-6">
           {t('subscription.description')}
         </p>
 
@@ -64,12 +64,12 @@ export function EmailSubscription() {
             onChange={e => setEmail(e.target.value)}
             placeholder={t('subscription.placeholder')}
             required
-            className="flex-1 px-5 py-3 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
+            className="flex-1 px-4 sm:px-5 py-3 rounded-xl text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-white"
           />
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-6 py-3 bg-white text-green-600 font-bold rounded-xl hover:bg-green-50 transition disabled:opacity-50"
+            className="px-5 sm:px-6 py-3 bg-white text-green-600 font-bold rounded-xl hover:bg-green-50 active:scale-95 transition disabled:opacity-50"
           >
             {status === 'loading' ? t('subscription.subscribing') : t('subscription.subscribe')}
           </button>

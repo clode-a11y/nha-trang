@@ -99,16 +99,16 @@ export function Testimonials() {
   const testimonial = testimonials[current]
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
         <span>💬</span> {t('testimonials.title')}
       </h3>
 
       <div className="relative">
         {/* Main testimonial */}
-        <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-6 min-h-[200px]">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="text-4xl">{testimonial.avatar}</span>
+        <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 min-h-[180px] sm:min-h-[200px]">
+          <div className="flex items-center gap-3 sm:gap-4 mb-4">
+            <span className="text-3xl sm:text-4xl">{testimonial.avatar}</span>
             <div>
               <h4 className="font-bold text-gray-900 dark:text-white">{testimonial.name}</h4>
               <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.location} • {testimonial.date}</p>
@@ -121,7 +121,7 @@ export function Testimonials() {
               ))}
             </div>
           </div>
-          <p className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
+          <p className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed">
             &ldquo;{testimonial.text}&rdquo;
           </p>
         </div>
@@ -130,7 +130,7 @@ export function Testimonials() {
         <div className="flex items-center justify-between mt-4">
           <button
             onClick={prev}
-            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center text-gray-700 dark:text-gray-300"
+            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 active:scale-95 transition flex items-center justify-center text-gray-700 dark:text-gray-300"
           >
             ←
           </button>
@@ -149,7 +149,7 @@ export function Testimonials() {
 
           <button
             onClick={next}
-            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition flex items-center justify-center text-gray-700 dark:text-gray-300"
+            className="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 active:scale-95 transition flex items-center justify-center text-gray-700 dark:text-gray-300"
           >
             →
           </button>
@@ -159,15 +159,15 @@ export function Testimonials() {
       {/* Stats */}
       <div className="mt-6 pt-6 border-t dark:border-gray-700 grid grid-cols-3 gap-4 text-center">
         <div>
-          <div className="text-2xl font-bold text-green-600 dark:text-green-400">4.9</div>
+          <div className="text-xl sm:text-2xl font-bold text-green-600 dark:text-green-400">4.9</div>
           <div className="text-sm text-gray-500 dark:text-gray-400">{t('testimonials.avgRating')}</div>
         </div>
         <div>
-          <div className="text-2xl font-bold text-green-600 dark:text-green-400">500+</div>
+          <div className="text-xl sm:text-2xl font-bold text-green-600 dark:text-green-400">500+</div>
           <div className="text-sm text-gray-500 dark:text-gray-400">{t('testimonials.reviews')}</div>
         </div>
         <div>
-          <div className="text-2xl font-bold text-green-600 dark:text-green-400">98%</div>
+          <div className="text-xl sm:text-2xl font-bold text-green-600 dark:text-green-400">98%</div>
           <div className="text-sm text-gray-500 dark:text-gray-400">{t('testimonials.satisfied')}</div>
         </div>
       </div>

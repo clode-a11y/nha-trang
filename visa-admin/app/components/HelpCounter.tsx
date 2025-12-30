@@ -60,24 +60,24 @@ export function HelpCounter() {
   return (
     <div
       id="help-counter"
-      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-3xl p-8 shadow-xl text-white overflow-hidden relative"
+      className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl text-white overflow-hidden relative"
     >
       {/* Background decoration */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-1/4 w-64 h-64 bg-green-500 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-emerald-500 rounded-full blur-3xl" />
+        <div className="absolute top-0 left-1/4 w-48 h-48 sm:w-64 sm:h-64 bg-green-500 rounded-full blur-3xl" />
+        <div className="absolute bottom-0 right-1/4 w-48 h-48 sm:w-64 sm:h-64 bg-emerald-500 rounded-full blur-3xl" />
       </div>
 
       <div className="relative z-10">
-        <h3 className="text-2xl font-bold text-center mb-8">
+        <h3 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8">
           {t('counter.title')}
         </h3>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
           {stats.map(stat => (
             <div key={stat.label} className="text-center">
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <div className="text-3xl md:text-4xl font-bold text-green-400">
+              <div className="text-2xl sm:text-3xl mb-2">{stat.icon}</div>
+              <div className="text-2xl sm:text-3xl md:text-4xl font-bold text-green-400">
                 {isVisible ? <AnimatedNumber value={stat.value} /> : '0'}
                 {stat.suffix}
               </div>
@@ -86,7 +86,7 @@ export function HelpCounter() {
           ))}
         </div>
 
-        <div className="mt-8 text-center">
+        <div className="mt-6 sm:mt-8 text-center">
           <p className="text-gray-400 text-sm">
             * {t('counter.asOf')}
           </p>

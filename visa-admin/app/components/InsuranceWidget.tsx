@@ -45,11 +45,11 @@ export function InsuranceWidget() {
   ]
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
         <span>🏥</span> {t('insurance.title')}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-4 sm:mb-6">
         {t('insurance.subtitle')}
       </p>
 
@@ -60,10 +60,10 @@ export function InsuranceWidget() {
             href={partner.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`block p-4 rounded-xl border-2 transition-all hover:scale-[1.02] hover:shadow-lg ${colorClasses[partner.color as keyof typeof colorClasses]}`}
+            className={`block p-3 sm:p-4 rounded-xl border-2 transition-all hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg ${colorClasses[partner.color as keyof typeof colorClasses]}`}
           >
-            <div className="flex items-start gap-4">
-              <span className="text-3xl">{partner.logo}</span>
+            <div className="flex items-start gap-3 sm:gap-4">
+              <span className="text-2xl sm:text-3xl">{partner.logo}</span>
               <div className="flex-1">
                 <div className="flex items-center justify-between mb-1">
                   <h4 className="font-bold text-gray-900 dark:text-white">{partner.name}</h4>
@@ -87,7 +87,7 @@ export function InsuranceWidget() {
         ))}
       </div>
 
-      <div className="mt-6 p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-800">
+      <div className="mt-4 sm:mt-6 p-3 sm:p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-xl border border-yellow-200 dark:border-yellow-800">
         <p className="text-sm text-yellow-800 dark:text-yellow-200 flex items-start gap-2">
           <span>⚠️</span>
           <span>{t('insurance.warning')}</span>

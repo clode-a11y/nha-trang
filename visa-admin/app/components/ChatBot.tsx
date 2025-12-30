@@ -107,13 +107,13 @@ export function ChatBot() {
       {isOpen && (
         <div className="fixed bottom-20 sm:bottom-24 right-4 sm:right-6 left-4 sm:left-auto w-auto sm:w-[350px] h-[70vh] sm:h-[500px] max-h-[500px] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden border border-gray-200 dark:border-gray-700">
           {/* Header */}
-          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-4">
+          <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-3 sm:p-4">
             <h4 className="font-bold text-lg">{t('chatbot.title')}</h4>
             <p className="text-sm text-green-100">{t('chatbot.online')} • {t('chatbot.responseTime')}</p>
           </div>
 
           {/* Messages */}
-          <div className="flex-1 overflow-y-auto p-4 space-y-3">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-3">
             {messages.map(msg => (
               <div
                 key={msg.id}
@@ -135,7 +135,7 @@ export function ChatBot() {
 
           {/* Quick questions */}
           {messages.length === 1 && (
-            <div className="px-4 pb-2 flex flex-wrap gap-2">
+            <div className="px-3 sm:px-4 pb-2 flex flex-wrap gap-2">
               {quickQuestions.map(q => (
                 <button
                   key={q}
@@ -149,7 +149,7 @@ export function ChatBot() {
           )}
 
           {/* Input */}
-          <div className="p-4 border-t dark:border-gray-700">
+          <div className="p-3 sm:p-4 border-t dark:border-gray-700">
             <div className="flex gap-2">
               <input
                 type="text"

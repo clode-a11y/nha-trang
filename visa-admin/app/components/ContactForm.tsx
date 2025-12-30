@@ -50,7 +50,7 @@ export function ContactForm() {
   if (status === 'success') {
     return (
       <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700 text-center">
-        <div className="text-6xl mb-4">✅</div>
+        <div className="text-5xl sm:text-6xl mb-4">✅</div>
         <h3 className="text-xl sm:text-2xl font-bold text-green-600 dark:text-green-400 mb-2">{t('contact.success')}</h3>
         <p className="text-gray-600 dark:text-gray-400">{t('contact.successMsg')}</p>
       </div>

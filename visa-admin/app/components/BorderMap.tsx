@@ -112,19 +112,19 @@ export function BorderMap() {
   )
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2 flex items-center gap-2">
         <span>🗺️</span> {t('borderMap.title')}
       </h3>
-      <p className="text-gray-500 dark:text-gray-400 mb-6">
+      <p className="text-gray-500 dark:text-gray-400 mb-4 sm:mb-6">
         {t('borderMap.subtitle')}
       </p>
 
       {/* Filters */}
-      <div className="flex gap-2 mb-6">
+      <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
         <button
           onClick={() => setFilter('all')}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+          className={`px-3 sm:px-4 py-2 rounded-full text-sm font-medium active:scale-95 transition ${
             filter === 'all'
               ? 'bg-green-500 text-white'
               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -134,7 +134,7 @@ export function BorderMap() {
         </button>
         <button
           onClick={() => setFilter('airport')}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+          className={`px-3 sm:px-4 py-2 rounded-full text-sm font-medium active:scale-95 transition ${
             filter === 'airport'
               ? 'bg-green-500 text-white'
               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -144,7 +144,7 @@ export function BorderMap() {
         </button>
         <button
           onClick={() => setFilter('land')}
-          className={`px-4 py-2 rounded-full text-sm font-medium transition ${
+          className={`px-3 sm:px-4 py-2 rounded-full text-sm font-medium active:scale-95 transition ${
             filter === 'land'
               ? 'bg-green-500 text-white'
               : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
@@ -154,9 +154,9 @@ export function BorderMap() {
         </button>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
         {/* Map */}
-        <div className="relative bg-gradient-to-br from-green-100 to-emerald-100 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-4">
+        <div className="relative bg-gradient-to-br from-green-100 to-emerald-100 dark:from-gray-700 dark:to-gray-600 rounded-xl sm:rounded-2xl p-3 sm:p-4">
           <svg className="w-full" viewBox="0 0 300 500" fill="none">
             {/* Vietnam outline */}
             <path d="
@@ -221,9 +221,9 @@ export function BorderMap() {
         {/* Info panel */}
         <div>
           {selected ? (
-            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-4">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-3 sm:p-4">
               <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl">{typeIcons[selected.type as keyof typeof typeIcons]}</span>
+                <span className="text-2xl sm:text-3xl">{typeIcons[selected.type as keyof typeof typeIcons]}</span>
                 <div>
                   <h4 className="font-bold text-gray-900 dark:text-white">{selected.name}</h4>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{selected.nameEn}</p>
@@ -264,7 +264,7 @@ export function BorderMap() {
               </p>
             </div>
           ) : (
-            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-8 text-center">
+            <div className="bg-gray-50 dark:bg-gray-700 rounded-xl p-6 sm:p-8 text-center">
               <p className="text-gray-500 dark:text-gray-400">
                 👆 {t('borderMap.clickToView')}
               </p>
@@ -277,7 +277,7 @@ export function BorderMap() {
               <button
                 key={crossing.id}
                 onClick={() => setSelected(crossing)}
-                className={`w-full text-left p-3 rounded-lg transition ${
+                className={`w-full text-left p-3 rounded-lg active:scale-[0.98] transition ${
                   selected?.id === crossing.id
                     ? 'bg-green-100 dark:bg-green-900/30 border-green-300 dark:border-green-700'
                     : 'bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600'

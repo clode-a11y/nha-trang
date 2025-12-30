@@ -60,22 +60,22 @@ export function UsefulLinks() {
   ]
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
         <span>🔗</span> {t('links.title')}
       </h3>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
         {links.map(link => (
           <a
             key={link.url}
             href={link.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`block p-4 rounded-xl border-2 transition-all hover:scale-[1.02] hover:shadow-lg ${colorClasses[link.color as keyof typeof colorClasses]}`}
+            className={`block p-3 sm:p-4 rounded-xl border-2 transition-all hover:scale-[1.02] active:scale-[0.98] hover:shadow-lg ${colorClasses[link.color as keyof typeof colorClasses]}`}
           >
             <div className="flex items-start gap-3">
-              <span className="text-2xl">{link.icon}</span>
+              <span className="text-xl sm:text-2xl">{link.icon}</span>
               <div>
                 <h4 className="font-bold text-gray-900 dark:text-white group-hover:text-blue-600">
                   {link.title}

@@ -31,8 +31,8 @@ export function VietnamMap() {
   const [selectedCity, setSelectedCity] = useState<string | null>('nhatrang')
 
   return (
-    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-3xl p-6 md:p-8 shadow-xl border border-white/50 dark:border-gray-700">
-      <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-xl border border-white/50 dark:border-gray-700">
+      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
         <span>🗺️</span> {t('map.title')}
       </h3>
 
@@ -187,7 +187,7 @@ export function VietnamMap() {
 
           {/* Selected city info */}
           {selectedCity && (
-            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-2xl p-4 border border-green-200 dark:border-green-800">
+            <div className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-green-200 dark:border-green-800">
               {(() => {
                 const city = cities.find(c => c.id === selectedCity)
                 if (!city) return null
@@ -217,7 +217,7 @@ export function VietnamMap() {
                 <button
                   key={cityId}
                   onClick={() => setSelectedCity(cityId)}
-                  className={`px-3 py-1 rounded-full text-xs font-medium transition ${
+                  className={`px-3 py-1.5 rounded-full text-xs font-medium active:scale-95 transition ${
                     selectedCity === cityId
                       ? 'bg-green-500 text-white'
                       : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-green-100 dark:hover:bg-green-900/40'

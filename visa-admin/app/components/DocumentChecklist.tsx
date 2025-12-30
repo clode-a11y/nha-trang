@@ -58,7 +58,7 @@ export function DocumentChecklist() {
         {requiredDocs.map(doc => (
           <label
             key={doc.id}
-            className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-all ${
+            className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer active:scale-[0.98] transition-all ${
               checked.includes(doc.id)
                 ? 'bg-green-50 dark:bg-green-900/30 border-2 border-green-300 dark:border-green-700'
                 : 'bg-gray-50 dark:bg-gray-700/50 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600'
@@ -86,7 +86,7 @@ export function DocumentChecklist() {
         {optionalDocs.map(doc => (
           <label
             key={doc.id}
-            className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-all ${
+            className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer active:scale-[0.98] transition-all ${
               checked.includes(doc.id)
                 ? 'bg-blue-50 dark:bg-blue-900/30 border-2 border-blue-300 dark:border-blue-700'
                 : 'bg-gray-50 dark:bg-gray-700/50 border-2 border-transparent hover:border-gray-200 dark:hover:border-gray-600'
